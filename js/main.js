@@ -1,6 +1,6 @@
 /* ==========================================================
    Emmanuel Dental & Orthodontics — Main JavaScript
-   Vanilla JS · No dependencies
+   Vanilla JS + jQuery/Owl Carousel
    ========================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -256,15 +256,15 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateSlider(slider, percent) {
-    const beforePane = slider.querySelector('.ba-slider__before');
-    const handle = slider.querySelector('.ba-slider__handle');
+    var beforePane = slider.querySelector('.ba-slider__before');
+    var handle = slider.querySelector('.ba-slider__handle');
     if (beforePane) beforePane.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
     if (handle) handle.style.left = percent + '%';
   }
 
   baSliders.forEach(function (slider) {
-    const beforePane = slider.querySelector('.ba-slider__before');
-    const handle = slider.querySelector('.ba-slider__handle');
+    var beforePane = slider.querySelector('.ba-slider__before');
+    var handle = slider.querySelector('.ba-slider__handle');
     if (!beforePane || !handle) return;
 
     slider.addEventListener('mousedown', function (e) {
@@ -303,64 +303,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* --------------------------------------------------------
-     9. Testimonial Slider / Carousel
+     9. Service Card "Learn More" Toggle
      -------------------------------------------------------- */
-  const testimonialTrack = document.querySelector('.testimonial-slider__track');
-  const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-  const testimonialDots = document.querySelector('.testimonial-slider__dots');
+  var serviceToggles = document.querySelectorAll('.service-card__toggle');
 
-  if (testimonialSlides.length > 0) {
-    let currentSlide = 0;
-    let autoplayTimer = null;
-    const autoplayDelay = 5000;
-
-    // Build dots dynamically
-    if (testimonialDots) {
-      testimonialSlides.forEach(function (_slide, index) {
-        const dot = document.createElement('button');
-        dot.classList.add('testimonial-slider__dot');
-        dot.setAttribute('aria-label', 'Go to testimonial ' + (index + 1));
-        if (index === 0) dot.classList.add('testimonial-slider__dot--active');
-        dot.addEventListener('click', function () {
-          goToSlide(index);
-          resetAutoplay();
-        });
-        testimonialDots.appendChild(dot);
-      });
-    }
-
-    const dots = document.querySelectorAll('.testimonial-slider__dot');
-
-    function goToSlide(index) {
-      testimonialSlides.forEach(function (slide) {
-        slide.classList.remove('testimonial-slide--active');
-      });
-
-      testimonialSlides[index].classList.add('testimonial-slide--active');
-
-      dots.forEach(function (dot) {
-        dot.classList.remove('testimonial-slider__dot--active');
-      });
-      if (dots[index]) dots[index].classList.add('testimonial-slider__dot--active');
-
-      currentSlide = index;
-    }
-
-    function nextSlide() {
-      let next = currentSlide + 1;
-      if (next >= testimonialSlides.length) next = 0;
-      goToSlide(next);
-    }
-
-    function resetAutoplay() {
-      if (autoplayTimer) clearInterval(autoplayTimer);
-      autoplayTimer = setInterval(nextSlide, autoplayDelay);
-    }
-
-    // Initialize first slide
-    goToSlide(0);
-    resetAutoplay();
-  }
+  serviceToggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var extraContent = this.nextElementSibling;
+      if (extraContent && extraContent.classList.contains('service-card__extra')) {
+        extraContent.classList.toggle('service-card__extra--open');
+        this.classList.toggle('active');
+      }
+    });
+  });
 
   /* --------------------------------------------------------
      10. Back to Top Button
@@ -428,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (scrollY >= sectionTop && scrollY < sectionBottom) {
         navLinks.forEach(function (link) {
           link.classList.remove('nav__link--active');
-          const href = link.getAttribute('href');
+          var href = link.getAttribute('href');
           if (href === '#' + sectionId) {
             link.classList.add('nav__link--active');
           }
@@ -439,5 +395,70 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.addEventListener('scroll', highlightActiveNav, { passive: true });
   highlightActiveNav(); // set initial state
+
+  /* --------------------------------------------------------
+     13. Owl Carousel Initialization (jQuery)
+     -------------------------------------------------------- */
+  if (typeof jQuery !== 'undefined') {
+    jQuery(document).ready(function ($) {
+
+      // Services Carousel
+      if ($('.services-carousel').length) {
+        $('.services-carousel').owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: true,
+          dots: true,
+          autoplay: true,
+          autoplayTimeout: 4000,
+          autoplayHoverPause: true,
+          navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+          responsive: {
+            0: { items: 1 },
+            768: { items: 2 },
+            992: { items: 3 }
+          }
+        });
+      }
+
+      // Testimonials Carousel
+      if ($('.testimonials-carousel').length) {
+        $('.testimonials-carousel').owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: true,
+          dots: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          autoplayHoverPause: true,
+          navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+          responsive: {
+            0: { items: 1 },
+            768: { items: 2 },
+            992: { items: 3 }
+          }
+        });
+      }
+
+      // Footer Team Carousel
+      if ($('.footer-team-carousel').length) {
+        $('.footer-team-carousel').owlCarousel({
+          loop: true,
+          margin: 15,
+          nav: false,
+          dots: true,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          autoplayHoverPause: true,
+          responsive: {
+            0: { items: 1 },
+            768: { items: 2 },
+            992: { items: 4 }
+          }
+        });
+      }
+
+    });
+  }
 
 }); // end DOMContentLoaded
