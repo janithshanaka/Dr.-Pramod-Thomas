@@ -129,26 +129,20 @@ document.addEventListener('DOMContentLoaded', function () {
     link.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        dropdown.style.opacity = '1';
-        dropdown.style.visibility = 'visible';
-        dropdown.style.transform = 'translateY(0)';
+        dropdown.classList.add('nav__dropdown--open');
       }
     });
 
     item.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
-        dropdown.style.opacity = '';
-        dropdown.style.visibility = '';
-        dropdown.style.transform = '';
+        dropdown.classList.remove('nav__dropdown--open');
         link.focus();
       }
     });
 
-    // Reset inline styles when mouse leaves so CSS :hover rules take over
+    // Remove open class when mouse leaves so CSS :hover rules take over
     item.addEventListener('mouseleave', function () {
-      dropdown.style.opacity = '';
-      dropdown.style.visibility = '';
-      dropdown.style.transform = '';
+      dropdown.classList.remove('nav__dropdown--open');
     });
   });
 
@@ -250,59 +244,63 @@ document.addEventListener('DOMContentLoaded', function () {
      8. Before / After Slider
      -------------------------------------------------------- */
   const baSliders = document.querySelectorAll('.ba-slider');
+  let activeSlider = null;  // tracks which slider is being dragged
+  let activeSliderRect = null;
+
+  function getPositionPercent(clientX) {
+    if (!activeSliderRect) return 50;
+    let percent = ((clientX - activeSliderRect.left) / activeSliderRect.width) * 100;
+    if (percent < 0) percent = 0;
+    if (percent > 100) percent = 100;
+    return percent;
+  }
+
+  function updateSlider(slider, percent) {
+    const beforePane = slider.querySelector('.ba-slider__before');
+    const handle = slider.querySelector('.ba-slider__handle');
+    if (beforePane) beforePane.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
+    if (handle) handle.style.left = percent + '%';
+  }
 
   baSliders.forEach(function (slider) {
     const beforePane = slider.querySelector('.ba-slider__before');
     const handle = slider.querySelector('.ba-slider__handle');
     if (!beforePane || !handle) return;
 
-    let isDragging = false;
-
-    function getPositionPercent(clientX) {
-      const rect = slider.getBoundingClientRect();
-      let percent = ((clientX - rect.left) / rect.width) * 100;
-      // Clamp between 0 and 100
-      if (percent < 0) percent = 0;
-      if (percent > 100) percent = 100;
-      return percent;
-    }
-
-    function updateSlider(percent) {
-      beforePane.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
-      handle.style.left = percent + '%';
-    }
-
-    // Mouse events
     slider.addEventListener('mousedown', function (e) {
       e.preventDefault();
-      isDragging = true;
-      updateSlider(getPositionPercent(e.clientX));
+      activeSlider = slider;
+      activeSliderRect = slider.getBoundingClientRect();
+      updateSlider(slider, getPositionPercent(e.clientX));
     });
 
-    document.addEventListener('mousemove', function (e) {
-      if (!isDragging) return;
-      e.preventDefault();
-      updateSlider(getPositionPercent(e.clientX));
-    });
-
-    document.addEventListener('mouseup', function () {
-      isDragging = false;
-    });
-
-    // Touch events
     slider.addEventListener('touchstart', function (e) {
-      isDragging = true;
-      updateSlider(getPositionPercent(e.touches[0].clientX));
+      activeSlider = slider;
+      activeSliderRect = slider.getBoundingClientRect();
+      updateSlider(slider, getPositionPercent(e.touches[0].clientX));
     }, { passive: true });
+  });
 
-    document.addEventListener('touchmove', function (e) {
-      if (!isDragging) return;
-      updateSlider(getPositionPercent(e.touches[0].clientX));
-    }, { passive: true });
+  // Single set of global move/end listeners
+  document.addEventListener('mousemove', function (e) {
+    if (!activeSlider) return;
+    e.preventDefault();
+    updateSlider(activeSlider, getPositionPercent(e.clientX));
+  });
 
-    document.addEventListener('touchend', function () {
-      isDragging = false;
-    });
+  document.addEventListener('mouseup', function () {
+    activeSlider = null;
+    activeSliderRect = null;
+  });
+
+  document.addEventListener('touchmove', function (e) {
+    if (!activeSlider) return;
+    updateSlider(activeSlider, getPositionPercent(e.touches[0].clientX));
+  }, { passive: true });
+
+  document.addEventListener('touchend', function () {
+    activeSlider = null;
+    activeSliderRect = null;
   });
 
   /* --------------------------------------------------------
@@ -337,13 +335,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function goToSlide(index) {
       testimonialSlides.forEach(function (slide) {
         slide.classList.remove('testimonial-slide--active');
-        slide.style.opacity = '0';
-        slide.style.position = 'absolute';
       });
 
       testimonialSlides[index].classList.add('testimonial-slide--active');
-      testimonialSlides[index].style.opacity = '1';
-      testimonialSlides[index].style.position = 'relative';
 
       dots.forEach(function (dot) {
         dot.classList.remove('testimonial-slider__dot--active');

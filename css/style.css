@@ -543,7 +543,8 @@ p {
   border-top: 3px solid var(--clr-gold);
 }
 
-.nav__item:hover > .nav__dropdown {
+.nav__item:hover > .nav__dropdown,
+.nav__dropdown--open {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
