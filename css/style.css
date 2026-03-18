@@ -376,6 +376,9 @@ p {
   color: var(--clr-text-muted);
   font-size: var(--fs-xs);
   padding: 0.5rem 0;
+  height: var(--info-bar-height);
+  display: flex;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -1594,7 +1597,16 @@ p {
    ========================================================== */
 .testimonials {
   padding: var(--section-padding);
-  background-color: var(--clr-off-white);
+  background: linear-gradient(rgba(26, 39, 68, 0.85), rgba(26, 39, 68, 0.85)), url('../asset/success-story-bg.jpg') center/cover no-repeat fixed;
+  color: var(--clr-white);
+}
+
+.testimonials .section-title {
+  color: var(--clr-white);
+}
+
+.testimonials .section-subtitle {
+  color: var(--clr-text-muted);
 }
 
 .testimonial-card {
