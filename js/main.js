@@ -303,19 +303,18 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* --------------------------------------------------------
-     9. Service Card "Learn More" Toggle
+     9. Service Card "Read More" Toggle (event delegation for
+        Owl Carousel clones)
      -------------------------------------------------------- */
-  var serviceToggles = document.querySelectorAll('.service-card__toggle');
-
-  serviceToggles.forEach(function (toggle) {
-    toggle.addEventListener('click', function (e) {
-      e.preventDefault();
-      var extraContent = this.nextElementSibling;
-      if (extraContent && extraContent.classList.contains('service-card__extra')) {
-        extraContent.classList.toggle('service-card__extra--open');
-        this.classList.toggle('active');
-      }
-    });
+  document.addEventListener('click', function (e) {
+    var toggle = e.target.closest('.service-card__toggle');
+    if (!toggle) return;
+    e.preventDefault();
+    var extraContent = toggle.nextElementSibling;
+    if (extraContent && extraContent.classList.contains('service-card__extra')) {
+      extraContent.classList.toggle('service-card__extra--open');
+      toggle.classList.toggle('active');
+    }
   });
 
   /* --------------------------------------------------------
