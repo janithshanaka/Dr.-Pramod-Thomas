@@ -432,9 +432,11 @@ p {
    5. Main Navigation / Header
    ========================================================== */
 .header {
-  background-color: var(--clr-navy-dark);
-  position: sticky;
+  background-color: #00000099;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--transition-base);
@@ -1839,6 +1841,250 @@ p {
 /* ==========================================================
    18. Footer
    ========================================================== */
+
+/* Welcome Read More */
+.welcome__extra {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, margin 0.3s ease;
+  margin-top: 0;
+}
+
+.welcome__extra--open {
+  max-height: 500px;
+  margin-top: var(--sp-lg);
+}
+
+.welcome__extra p {
+  font-size: var(--fs-base);
+  color: var(--clr-text-dark);
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Your Smile, Our Priority */
+.smile-priority {
+  padding: var(--section-padding);
+  background-color: var(--clr-white);
+}
+
+.smile-priority__text {
+  font-size: var(--fs-base);
+  color: var(--clr-text-dark);
+  line-height: 1.8;
+  max-width: 900px;
+  margin: var(--sp-lg) auto 0;
+  text-align: center;
+}
+
+/* Photo Gallery */
+.photo-gallery {
+  padding: var(--section-padding);
+  background-color: var(--clr-off-white);
+}
+
+.photo-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-md);
+  margin-top: var(--sp-xl);
+}
+
+.photo-gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  display: block;
+}
+
+.photo-gallery__item:nth-child(5) {
+  grid-column: 1 / -1;
+}
+
+.photo-gallery__item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+  display: block;
+}
+
+.photo-gallery__item:hover img {
+  transform: scale(1.08);
+}
+
+.photo-gallery__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 39, 68, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.photo-gallery__overlay i {
+  color: var(--clr-white);
+  font-size: var(--fs-2xl);
+}
+
+.photo-gallery__item:hover .photo-gallery__overlay {
+  opacity: 1;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox--open {
+  display: flex;
+}
+
+.lightbox__content {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.lightbox__img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--clr-white);
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 10000;
+  line-height: 1;
+}
+
+.lightbox__close:hover {
+  color: var(--clr-gold);
+}
+
+.lightbox__prev,
+.lightbox__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: var(--clr-white);
+  font-size: var(--fs-xl);
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox__prev:hover,
+.lightbox__next:hover {
+  background: var(--gradient-gold);
+  color: var(--clr-navy-dark);
+}
+
+.lightbox__prev {
+  left: 1.5rem;
+}
+
+.lightbox__next {
+  right: 1.5rem;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+  padding: var(--section-padding);
+  background-color: var(--clr-navy-dark);
+  color: var(--clr-white);
+}
+
+.contact-form-section__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-xl);
+  align-items: start;
+}
+
+.contact-form-section__title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-3xl);
+  color: var(--clr-white);
+  margin-bottom: var(--sp-sm);
+}
+
+.contact-form-section__desc {
+  color: var(--clr-text-muted);
+  font-size: var(--fs-base);
+  margin-bottom: var(--sp-xl);
+  line-height: 1.7;
+}
+
+.contact-form-section__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.contact-form-section__detail {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-sm);
+  font-size: var(--fs-sm);
+}
+
+.contact-form-section__detail i {
+  color: var(--clr-gold);
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+.contact-form-section__detail a {
+  color: var(--clr-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.contact-form-section__detail a:hover {
+  color: var(--clr-gold);
+}
+
+.contact-form-section__form-wrap {
+  background-color: var(--clr-white);
+  padding: var(--sp-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-form-section__form-wrap h3 {
+  font-family: var(--ff-heading);
+  color: var(--clr-navy-dark);
+  margin-bottom: var(--sp-lg);
+  font-size: var(--fs-xl);
+}
+
 /* Footer Team Carousel */
 .footer-team-carousel-wrap {
   background-color: var(--clr-navy-light);
@@ -2290,6 +2536,15 @@ p {
   .footer__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .photo-gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .photo-gallery__item:nth-child(4),
+  .photo-gallery__item:nth-child(5) {
+    grid-column: auto;
+  }
 }
 
 /* ==========================================================
@@ -2356,6 +2611,10 @@ p {
 
 
   .contact__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-form-section__grid {
     grid-template-columns: 1fr 1fr;
   }
 
