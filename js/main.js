@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!targetEl) return;
 
       e.preventDefault();
-      const headerOffset = header ? header.offsetHeight : 0;
+      const headerOffset = (header ? header.offsetHeight : 0) + (infoBar ? infoBar.offsetHeight : 0);
       const targetPosition = targetEl.getBoundingClientRect().top + window.scrollY - headerOffset;
 
       window.scrollTo({
@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!sections.length || !navLinks.length) return;
 
     const scrollY = window.scrollY;
-    const headerHeight = header ? header.offsetHeight : 0;
+    const headerHeight = (header ? header.offsetHeight : 0) + (infoBar ? infoBar.offsetHeight : 0);
 
     sections.forEach(function (section) {
       const sectionTop = section.offsetTop - headerHeight - 100;
@@ -494,6 +494,9 @@ document.addEventListener('DOMContentLoaded', function () {
     lightboxImg.src = galleryItems[index].href;
     lightbox.classList.add('lightbox--open');
     document.body.style.overflow = 'hidden';
+    // Restore gallery prev/next handlers
+    if (lightboxPrev) lightboxPrev.onclick = function () { showPrevImage(); };
+    if (lightboxNext) lightboxNext.onclick = function () { showNextImage(); };
   }
 
   function closeLightbox() {
@@ -535,5 +538,43 @@ document.addEventListener('DOMContentLoaded', function () {
       if (e.key === 'ArrowRight') showNextImage();
     });
   }
+
+  /* --------------------------------------------------------
+     16. Footer Slider Lightbox (event delegation for Owl clones)
+     -------------------------------------------------------- */
+  var footerSliderSources = [
+    'asset/slider_img_1.png',
+    'asset/slider_img_2.png',
+    'asset/slider_img_3.png',
+    'asset/slider_img_4.png',
+    'asset/slider_img_5.png'
+  ];
+  var currentFooterLightboxIndex = 0;
+
+  function openFooterLightbox(src) {
+    if (!lightbox || !lightboxImg) return;
+    currentFooterLightboxIndex = footerSliderSources.indexOf(src);
+    if (currentFooterLightboxIndex === -1) currentFooterLightboxIndex = 0;
+    lightboxImg.src = src;
+    lightbox.classList.add('lightbox--open');
+    document.body.style.overflow = 'hidden';
+    // Override prev/next to navigate footer images
+    lightboxPrev.onclick = function () {
+      currentFooterLightboxIndex = (currentFooterLightboxIndex - 1 + footerSliderSources.length) % footerSliderSources.length;
+      lightboxImg.src = footerSliderSources[currentFooterLightboxIndex];
+    };
+    lightboxNext.onclick = function () {
+      currentFooterLightboxIndex = (currentFooterLightboxIndex + 1) % footerSliderSources.length;
+      lightboxImg.src = footerSliderSources[currentFooterLightboxIndex];
+    };
+  }
+
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('[data-lightbox-footer]');
+    if (link) {
+      e.preventDefault();
+      openFooterLightbox(link.getAttribute('href'));
+    }
+  });
 
 }); // end DOMContentLoaded
