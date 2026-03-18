@@ -432,7 +432,7 @@ p {
    5. Main Navigation / Header
    ========================================================== */
 .header {
-  background-color: var(--clr-white);
+  background-color: var(--clr-navy-dark);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -467,7 +467,7 @@ p {
 .header__logo-text {
   font-family: var(--ff-heading);
   font-size: var(--fs-lg);
-  color: var(--clr-navy-dark);
+  color: var(--clr-white);
   font-weight: 700;
   line-height: 1.2;
 }
@@ -504,7 +504,7 @@ p {
   padding: 0.5rem 1rem;
   font-size: var(--fs-sm);
   font-weight: 600;
-  color: var(--clr-navy-dark);
+  color: var(--clr-white);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   transition: color var(--transition-fast);
@@ -585,7 +585,7 @@ p {
   display: block;
   width: 24px;
   height: 2px;
-  background-color: var(--clr-navy-dark);
+  background-color: var(--clr-white);
   border-radius: 2px;
   transition: all var(--transition-base);
 }
