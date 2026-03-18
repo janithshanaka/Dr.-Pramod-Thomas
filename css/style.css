@@ -1647,7 +1647,7 @@ p {
 }
 
 .service-card__extra--open {
-  max-height: 400px;
+  max-height: 600px;
   padding-top: var(--sp-sm);
 }
 

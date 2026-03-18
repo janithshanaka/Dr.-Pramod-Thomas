@@ -256,15 +256,15 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateSlider(slider, percent) {
-    var beforePane = slider.querySelector('.ba-slider__before');
-    var handle = slider.querySelector('.ba-slider__handle');
+    const beforePane = slider.querySelector('.ba-slider__before');
+    const handle = slider.querySelector('.ba-slider__handle');
     if (beforePane) beforePane.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
     if (handle) handle.style.left = percent + '%';
   }
 
   baSliders.forEach(function (slider) {
-    var beforePane = slider.querySelector('.ba-slider__before');
-    var handle = slider.querySelector('.ba-slider__handle');
+    const beforePane = slider.querySelector('.ba-slider__before');
+    const handle = slider.querySelector('.ba-slider__handle');
     if (!beforePane || !handle) return;
 
     slider.addEventListener('mousedown', function (e) {
@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (scrollY >= sectionTop && scrollY < sectionBottom) {
         navLinks.forEach(function (link) {
           link.classList.remove('nav__link--active');
-          var href = link.getAttribute('href');
+          const href = link.getAttribute('href');
           if (href === '#' + sectionId) {
             link.classList.add('nav__link--active');
           }
