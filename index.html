@@ -24,44 +24,19 @@
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Supplemental styles for sections not covered in style.css -->
   <style>
-    /* Testimonial Slider */
-    .testimonials{padding:var(--section-padding);background-color:var(--clr-off-white)}
-    .testimonial-slider{position:relative;max-width:800px;margin:var(--sp-xl) auto 0;overflow:hidden}
-    .testimonial-slider__track{position:relative;min-height:260px}
-    .testimonial-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s ease;display:flex;flex-direction:column;align-items:center;text-align:center;padding:var(--sp-lg);background:var(--clr-white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card)}
-    .testimonial-slide--active{opacity:1;visibility:visible;position:relative}
-    .testimonial-slide__stars{color:var(--clr-gold);font-size:var(--fs-lg);margin-bottom:var(--sp-sm)}
-    .testimonial-slide__text{color:#666;font-size:var(--fs-base);line-height:1.8;font-style:italic;margin-bottom:var(--sp-md);max-width:640px}
-    .testimonial-slide__author{font-weight:700;color:var(--clr-navy-dark);font-size:var(--fs-base)}
-    .testimonial-slide__role{color:var(--clr-gold);font-size:var(--fs-sm);font-weight:600}
-    .testimonial-slider__dots{display:flex;justify-content:center;gap:.5rem;margin-top:var(--sp-md)}
-    .testimonial-slider__dot{width:12px;height:12px;border-radius:var(--radius-full);background:var(--clr-border);border:none;cursor:pointer;transition:background var(--transition-fast)}
-    .testimonial-slider__dot--active{background:var(--clr-gold)}
-
     /* Back to Top */
     .back-to-top{position:fixed;bottom:2rem;right:2rem;width:48px;height:48px;border-radius:var(--radius-full);background:var(--gradient-gold);color:var(--clr-navy-dark);display:flex;align-items:center;justify-content:center;font-size:var(--fs-lg);box-shadow:var(--shadow-md);opacity:0;visibility:hidden;transform:translateY(20px);transition:all var(--transition-base);z-index:900;cursor:pointer;border:none}
     .back-to-top--visible{opacity:1;visibility:visible;transform:translateY(0)}
     .back-to-top:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
-
-    /* Blog Section */
-    .blog{padding:var(--section-padding);background-color:var(--clr-white)}
-    .blog__grid{display:grid;grid-template-columns:1fr;gap:var(--sp-lg);margin-top:var(--sp-xl)}
-    .blog-card{background:var(--clr-white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);transition:transform var(--transition-base),box-shadow var(--transition-base)}
-    .blog-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-    .blog-card__image{width:100%;height:200px;overflow:hidden}
-    .blog-card__image img{width:100%;height:100%;object-fit:cover;transition:transform var(--transition-slow)}
-    .blog-card:hover .blog-card__image img{transform:scale(1.05)}
-    .blog-card__body{padding:var(--sp-md)}
-    .blog-card__date{color:var(--clr-gold);font-size:var(--fs-xs);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem}
-    .blog-card__title{font-family:var(--ff-heading);font-size:var(--fs-lg);color:var(--clr-navy-dark);margin-bottom:.5rem}
-    .blog-card__text{color:#666;font-size:var(--fs-sm);line-height:1.7;margin-bottom:var(--sp-sm)}
-    .blog-card__link{display:inline-flex;align-items:center;gap:.4rem;color:var(--clr-gold);font-size:var(--fs-sm);font-weight:600;text-transform:uppercase;letter-spacing:.5px;transition:gap var(--transition-fast),color var(--transition-fast)}
-    .blog-card__link:hover{gap:.8rem;color:var(--clr-gold-hover)}
 
     /* Hero Review Badge */
     .hero__reviews{display:inline-flex;align-items:center;gap:.75rem;background:var(--clr-white);padding:.6rem 1.2rem;border-radius:var(--radius-lg);margin-top:var(--sp-lg);box-shadow:var(--shadow-md)}
@@ -74,9 +49,6 @@
 
     /* Mobile nav chevron rotation (toggled by JS) */
     .rotate-180{transform:rotate(180deg)}
-
-    @media(min-width:576px){.blog__grid{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:768px){.blog__grid{grid-template-columns:repeat(3,1fr)}}
   </style>
 
   <!-- Favicon -->
@@ -104,7 +76,10 @@
           <i class="fas fa-credit-card"></i>
           <span>Pay Online</span>
         </a>
-
+        <a href="#" class="info-bar__item btn--schedule" data-schedule>
+          <i class="fas fa-calendar-check"></i>
+          <span>Schedule Appointment</span>
+        </a>
       </div>
     </div>
   </div>
@@ -131,7 +106,7 @@
               <li><a href="#welcome" class="nav__dropdown-link">Our Practice</a></li>
               <li><a href="#doctors" class="nav__dropdown-link">Meet Dr. Thomas</a></li>
               <li><a href="#doctors" class="nav__dropdown-link">Meet Dr. Silva</a></li>
-              <li><a href="#team" class="nav__dropdown-link">Our Team</a></li>
+              <li><a href="#about-doctor" class="nav__dropdown-link">About Dr. Thomas</a></li>
             </ul>
           </li>
           <li class="nav__item">
@@ -140,8 +115,7 @@
               <li><a href="#services" class="nav__dropdown-link">General Dentistry</a></li>
               <li><a href="#services" class="nav__dropdown-link">Cosmetic Dentistry</a></li>
               <li><a href="#services" class="nav__dropdown-link">Dental Implants</a></li>
-              <li><a href="#orthodontics" class="nav__dropdown-link">Orthodontics / Braces</a></li>
-              <li><a href="#orthodontics" class="nav__dropdown-link">Invisalign</a></li>
+              <li><a href="#services" class="nav__dropdown-link">Invisalign</a></li>
             </ul>
           </li>
           <li class="nav__item">
@@ -159,9 +133,6 @@
               <li><a href="#smile-gallery" class="nav__dropdown-link">Before &amp; After</a></li>
               <li><a href="#smile-gallery" class="nav__dropdown-link">Smile Slider</a></li>
             </ul>
-          </li>
-          <li class="nav__item">
-            <a href="#blog" class="nav__link">Blog</a>
           </li>
           <li class="nav__item">
             <a href="#contact" class="nav__link">Contact Us</a>
@@ -196,7 +167,7 @@
           <li><a href="#welcome" class="mobile-nav__sub-link">Our Practice</a></li>
           <li><a href="#doctors" class="mobile-nav__sub-link">Meet Dr. Thomas</a></li>
           <li><a href="#doctors" class="mobile-nav__sub-link">Meet Dr. Silva</a></li>
-          <li><a href="#team" class="mobile-nav__sub-link">Our Team</a></li>
+          <li><a href="#about-doctor" class="mobile-nav__sub-link">About Dr. Thomas</a></li>
         </ul>
       </li>
       <li>
@@ -205,8 +176,7 @@
           <li><a href="#services" class="mobile-nav__sub-link">General Dentistry</a></li>
           <li><a href="#services" class="mobile-nav__sub-link">Cosmetic Dentistry</a></li>
           <li><a href="#services" class="mobile-nav__sub-link">Dental Implants</a></li>
-          <li><a href="#orthodontics" class="mobile-nav__sub-link">Orthodontics / Braces</a></li>
-          <li><a href="#orthodontics" class="mobile-nav__sub-link">Invisalign</a></li>
+          <li><a href="#services" class="mobile-nav__sub-link">Invisalign</a></li>
         </ul>
       </li>
       <li>
@@ -225,7 +195,6 @@
           <li><a href="#smile-gallery" class="mobile-nav__sub-link">Smile Slider</a></li>
         </ul>
       </li>
-      <li><a href="#blog" class="mobile-nav__link">Blog</a></li>
       <li><a href="#contact" class="mobile-nav__link">Contact Us</a></li>
     </ul>
     <div class="mobile-nav__cta">
@@ -276,15 +245,15 @@
   </section>
 
   <!-- ============================================================
-       5. SERVICES SECTION
+       5. SERVICES SECTION (Owl Carousel)
        ============================================================ -->
   <section class="services" id="services">
     <div class="container">
       <h2 class="section-title animate-on-scroll">Our Services</h2>
       <p class="section-subtitle animate-on-scroll">Comprehensive dental solutions tailored to your unique needs — from routine care to complete smile transformations.</p>
-      <div class="services__grid stagger-children">
+      <div class="owl-carousel services-carousel">
         <!-- Service 1: Braces / Orthodontics -->
-        <div class="service-card animate-on-scroll">
+        <div class="service-card">
           <div class="service-card__image">
             <img src="asset/fastbrace-service.jpg" alt="Braces and Orthodontics Treatment">
           </div>
@@ -292,11 +261,14 @@
             <div class="service-card__icon"><i class="fas fa-teeth-open"></i></div>
             <h3 class="service-card__title">Braces / Orthodontics</h3>
             <p class="service-card__text">Straighten your teeth and correct bite issues with our modern orthodontic solutions, including Fastbraces for faster results.</p>
-            <a href="#orthodontics" class="service-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="service-card__link service-card__toggle">Learn More <i class="fas fa-arrow-right"></i></a>
+            <div class="service-card__extra">
+              <p>Our orthodontic services include traditional metal braces, ceramic braces, and Fastbraces technology. Fastbraces use a patented bracket system that moves both the crown and root of teeth simultaneously, often achieving results in about half the time of traditional braces. We treat patients of all ages and offer flexible payment plans to make orthodontic treatment accessible for every family. During your free consultation, Dr. Thomas will evaluate your bite, discuss your goals, and recommend the best treatment path for you.</p>
+            </div>
           </div>
         </div>
         <!-- Service 2: Dental Implants -->
-        <div class="service-card animate-on-scroll">
+        <div class="service-card">
           <div class="service-card__image">
             <img src="asset/implant-services.jpg" alt="Dental Implant Procedure">
           </div>
@@ -304,11 +276,14 @@
             <div class="service-card__icon"><i class="fas fa-tooth"></i></div>
             <h3 class="service-card__title">Dental Implants</h3>
             <p class="service-card__text">Restore missing teeth with permanent, natural-looking dental implants that function and feel like your own teeth.</p>
-            <a href="#featured-services" class="service-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="service-card__link service-card__toggle">Learn More <i class="fas fa-arrow-right"></i></a>
+            <div class="service-card__extra">
+              <p>Dental implants are the gold standard for tooth replacement. Made of biocompatible titanium, they fuse with your jawbone to create a permanent, stable foundation for replacement teeth. Unlike dentures, implants don't slip or shift — they look, feel, and function like natural teeth. Dr. Thomas has extensive experience placing single implants, implant-supported bridges, and full-arch restorations. The procedure is comfortable, and most patients are amazed at how natural the results look and feel.</p>
+            </div>
           </div>
         </div>
         <!-- Service 3: Cosmetic Dentistry -->
-        <div class="service-card animate-on-scroll">
+        <div class="service-card">
           <div class="service-card__image">
             <img src="asset/cosmrtic-services.jpg" alt="Cosmetic Dentistry Services">
           </div>
@@ -316,11 +291,14 @@
             <div class="service-card__icon"><i class="fas fa-sparkles"></i></div>
             <h3 class="service-card__title">Cosmetic Dentistry</h3>
             <p class="service-card__text">Transform your smile with veneers, teeth whitening, bonding, and other cosmetic procedures tailored to your goals.</p>
-            <a href="#featured-services" class="service-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="service-card__link service-card__toggle">Learn More <i class="fas fa-arrow-right"></i></a>
+            <div class="service-card__extra">
+              <p>Our cosmetic dentistry services are designed to help you achieve the smile you've always wanted. We offer professional teeth whitening, porcelain veneers, dental bonding, gum contouring, and complete smile makeovers. Each treatment plan is customized to your unique goals and facial aesthetics. Dr. Thomas uses the latest materials and techniques to deliver results that look natural and last for years. Whether you want to fix a single imperfection or completely transform your smile, we can help.</p>
+            </div>
           </div>
         </div>
         <!-- Service 4: General Dentistry -->
-        <div class="service-card animate-on-scroll">
+        <div class="service-card">
           <div class="service-card__image">
             <img src="asset/general-dentistry-service.png" alt="General Dentistry Exam">
           </div>
@@ -328,11 +306,14 @@
             <div class="service-card__icon"><i class="fas fa-user-md"></i></div>
             <h3 class="service-card__title">General Dentistry</h3>
             <p class="service-card__text">Preventive care, cleanings, fillings, root canals, and more to keep your oral health in top condition for life.</p>
-            <a href="#contact" class="service-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="service-card__link service-card__toggle">Learn More <i class="fas fa-arrow-right"></i></a>
+            <div class="service-card__extra">
+              <p>General dentistry forms the foundation of good oral health. Our comprehensive services include routine exams and cleanings, digital X-rays, fillings, root canal therapy, extractions, periodontal (gum) treatment, and emergency dental care. We focus on prevention first — catching problems early saves you time, money, and discomfort. Our gentle, thorough approach ensures that patients of all ages feel comfortable and well-cared-for during every visit.</p>
+            </div>
           </div>
         </div>
         <!-- Service 5: Invisalign -->
-        <div class="service-card animate-on-scroll">
+        <div class="service-card">
           <div class="service-card__image">
             <img src="asset/invislign-boy.png" alt="Invisalign Clear Aligners">
           </div>
@@ -340,7 +321,10 @@
             <div class="service-card__icon"><i class="fas fa-smile-beam"></i></div>
             <h3 class="service-card__title">Invisalign</h3>
             <p class="service-card__text">Achieve a straighter smile discreetly with Invisalign clear aligners — no metal brackets, no wires, just results.</p>
-            <a href="#orthodontics" class="service-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="service-card__link service-card__toggle">Learn More <i class="fas fa-arrow-right"></i></a>
+            <div class="service-card__extra">
+              <p>Invisalign uses a series of custom-made, virtually invisible aligners to gradually shift your teeth into perfect alignment. The clear plastic trays are removable, so you can eat, drink, brush, and floss normally. Most adults and teens are great candidates for Invisalign. Treatment typically takes 6 to 18 months, and you'll see progress with each new set of aligners. Schedule a free consultation to find out if Invisalign is right for you.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -348,232 +332,242 @@
   </section>
 
   <!-- ============================================================
-       6. MEET THE DOCTORS SECTION
+       6. MEET THE DOCTORS SECTION (Redesigned)
        ============================================================ -->
   <section class="doctors" id="doctors">
     <div class="container">
       <h2 class="section-title animate-on-scroll">Meet Our Doctors</h2>
       <p class="section-subtitle animate-on-scroll">Our experienced dental professionals are dedicated to providing the highest standard of care with a personal touch.</p>
-      <div class="doctors__grid">
-        <!-- Dr. Pramod Thomas -->
-        <div class="doctor-card animate-on-scroll">
-          <img src="asset/drpramod.png" alt="Dr. Pramod Thomas, DDS" class="doctor-card__image">
-          <h3 class="doctor-card__name">Dr. Pramod Thomas</h3>
-          <p class="doctor-card__specialty">General &amp; Cosmetic Dentist</p>
-          <p class="doctor-card__bio">
+
+      <!-- Dr. Pramod Thomas -->
+      <div class="doctor-profile animate-on-scroll">
+        <div class="doctor-profile__image">
+          <img src="asset/drpramod.png" alt="Dr. Pramod Thomas, DDS">
+        </div>
+        <div class="doctor-profile__content">
+          <span class="doctor-profile__label">Lead Dentist &amp; Founder</span>
+          <h3 class="doctor-profile__name">Dr. Pramod Thomas</h3>
+          <p class="doctor-profile__specialty">General &amp; Cosmetic Dentist</p>
+          <p class="doctor-profile__bio">
             Dr. Pramod Thomas is the founder and lead dentist at Emmanuel Dental &amp; Orthodontics. With over 25 years of experience, he specializes in general dentistry, cosmetic dentistry, dental implants, and orthodontics. Dr. Thomas is passionate about creating beautiful smiles and providing exceptional care in a comfortable, family-friendly environment. He stays current with the latest dental technologies and techniques to offer the best treatment options for his patients.
           </p>
-          <div class="doctor-card__credentials">
-            <span class="doctor-card__credential-tag">DDS</span>
-            <span class="doctor-card__credential-tag">Dental Implants</span>
-            <span class="doctor-card__credential-tag">Orthodontics</span>
-            <span class="doctor-card__credential-tag">Cosmetic Dentistry</span>
+          <div class="doctor-profile__credentials">
+            <span class="doctor-profile__tag"><i class="fas fa-graduation-cap"></i> DDS</span>
+            <span class="doctor-profile__tag"><i class="fas fa-tooth"></i> Dental Implants</span>
+            <span class="doctor-profile__tag"><i class="fas fa-teeth"></i> Orthodontics</span>
+            <span class="doctor-profile__tag"><i class="fas fa-star"></i> Cosmetic Dentistry</span>
           </div>
-          <a href="#" class="btn btn--outline-navy btn--sm btn--schedule" data-schedule>Book with Dr. Thomas</a>
+          <a href="#" class="btn btn--gold btn--schedule" data-schedule><i class="fas fa-calendar-check"></i> Book with Dr. Thomas</a>
         </div>
-        <!-- Dr. Fred Silva -->
-        <div class="doctor-card animate-on-scroll">
-          <img src="asset/DrSilva-e1752786754921.png" alt="Dr. Fred Silva, DDS" class="doctor-card__image">
-          <h3 class="doctor-card__name">Dr. Fred Silva</h3>
-          <p class="doctor-card__specialty">Associate Dentist</p>
-          <p class="doctor-card__bio">
+      </div>
+
+      <!-- Dr. Fred Silva -->
+      <div class="doctor-profile doctor-profile--reverse animate-on-scroll">
+        <div class="doctor-profile__image">
+          <img src="asset/DrSilva-e1752786754921.png" alt="Dr. Fred Silva, DDS">
+        </div>
+        <div class="doctor-profile__content">
+          <span class="doctor-profile__label">Associate Dentist</span>
+          <h3 class="doctor-profile__name">Dr. Fred Silva</h3>
+          <p class="doctor-profile__specialty">Restorative &amp; Preventive Dentist</p>
+          <p class="doctor-profile__bio">
             Dr. Fred Silva is a dedicated associate dentist at Emmanuel Dental &amp; Orthodontics. He brings a wealth of knowledge and a gentle approach to patient care. Dr. Silva specializes in restorative dentistry, root canal therapy, and preventive care. His commitment to patient comfort and clinical excellence makes him a valued member of the Emmanuel Dental team. He takes the time to educate patients about their oral health and treatment options.
           </p>
-          <div class="doctor-card__credentials">
-            <span class="doctor-card__credential-tag">DDS</span>
-            <span class="doctor-card__credential-tag">Restorative Dentistry</span>
-            <span class="doctor-card__credential-tag">Preventive Care</span>
-            <span class="doctor-card__credential-tag">Root Canal Therapy</span>
+          <div class="doctor-profile__credentials">
+            <span class="doctor-profile__tag"><i class="fas fa-graduation-cap"></i> DDS</span>
+            <span class="doctor-profile__tag"><i class="fas fa-teeth-open"></i> Restorative Dentistry</span>
+            <span class="doctor-profile__tag"><i class="fas fa-shield-alt"></i> Preventive Care</span>
+            <span class="doctor-profile__tag"><i class="fas fa-tooth"></i> Root Canal Therapy</span>
           </div>
-          <a href="#" class="btn btn--outline-navy btn--sm btn--schedule" data-schedule>Book with Dr. Silva</a>
+          <a href="#" class="btn btn--gold btn--schedule" data-schedule><i class="fas fa-calendar-check"></i> Book with Dr. Silva</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       7. PATIENT REVIEWS / TESTIMONIALS
+       7. PATIENT REVIEWS / TESTIMONIALS (Owl Carousel)
        ============================================================ -->
   <section class="testimonials" id="testimonials">
     <div class="container">
       <h2 class="section-title animate-on-scroll">What Our Patients Say</h2>
       <p class="section-subtitle animate-on-scroll">Real stories from real patients — see why hundreds of families trust Emmanuel Dental with their smiles.</p>
-      <div class="testimonial-slider">
-        <div class="testimonial-slider__track">
-          <!-- Slide 1 -->
-          <div class="testimonial-slide testimonial-slide--active">
-            <div class="testimonial-slide__stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-slide__text">"Dr. Thomas and his team are absolutely amazing! They made me feel so comfortable from the moment I walked in. My smile has never looked better after getting my veneers. Highly recommend Emmanuel Dental to everyone!"</p>
-            <span class="testimonial-slide__author">Sarah M.</span>
-            <span class="testimonial-slide__role">Cosmetic Dentistry Patient</span>
+      <div class="owl-carousel testimonials-carousel">
+        <!-- Slide 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
-          <!-- Slide 2 -->
-          <div class="testimonial-slide">
-            <div class="testimonial-slide__stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-slide__text">"I was nervous about getting dental implants, but Dr. Thomas explained everything clearly and the procedure was painless. The results are incredible — my new teeth look and feel completely natural. Best decision I ever made!"</p>
-            <span class="testimonial-slide__author">James R.</span>
-            <span class="testimonial-slide__role">Dental Implant Patient</span>
-          </div>
-          <!-- Slide 3 -->
-          <div class="testimonial-slide">
-            <div class="testimonial-slide__stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-slide__text">"My kids actually look forward to going to the dentist now! The entire staff is so friendly and patient with children. Dr. Silva is wonderful with kids and makes every visit fun. We wouldn't go anywhere else."</p>
-            <span class="testimonial-slide__author">Maria L.</span>
-            <span class="testimonial-slide__role">Family Dentistry Patient</span>
-          </div>
-          <!-- Slide 4 -->
-          <div class="testimonial-slide">
-            <div class="testimonial-slide__stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-slide__text">"Fastbraces changed my life! In just months, my teeth were perfectly straight. The team at Emmanuel Dental made the whole orthodontic process easy and affordable. I can't stop smiling now!"</p>
-            <span class="testimonial-slide__author">David K.</span>
-            <span class="testimonial-slide__role">Orthodontic Patient</span>
-          </div>
+          <p class="testimonial-card__text">"Dr. Thomas and his team are absolutely amazing! They made me feel so comfortable from the moment I walked in. My smile has never looked better after getting my veneers. Highly recommend Emmanuel Dental to everyone!"</p>
+          <span class="testimonial-card__author">Sarah M.</span>
+          <span class="testimonial-card__role">Cosmetic Dentistry Patient</span>
         </div>
-        <div class="testimonial-slider__dots"></div>
+        <!-- Slide 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-card__text">"I was nervous about getting dental implants, but Dr. Thomas explained everything clearly and the procedure was painless. The results are incredible — my new teeth look and feel completely natural. Best decision I ever made!"</p>
+          <span class="testimonial-card__author">James R.</span>
+          <span class="testimonial-card__role">Dental Implant Patient</span>
+        </div>
+        <!-- Slide 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-card__text">"My kids actually look forward to going to the dentist now! The entire staff is so friendly and patient with children. Dr. Silva is wonderful with kids and makes every visit fun. We wouldn't go anywhere else."</p>
+          <span class="testimonial-card__author">Maria L.</span>
+          <span class="testimonial-card__role">Family Dentistry Patient</span>
+        </div>
+        <!-- Slide 4 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-card__text">"Fastbraces changed my life! In just months, my teeth were perfectly straight. The team at Emmanuel Dental made the whole orthodontic process easy and affordable. I can't stop smiling now!"</p>
+          <span class="testimonial-card__author">David K.</span>
+          <span class="testimonial-card__role">Orthodontic Patient</span>
+        </div>
+        <!-- Slide 5 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-card__text">"I had been putting off dental work for years because of anxiety. Emmanuel Dental completely changed my perspective. The staff is so patient and understanding, and Dr. Thomas is incredibly gentle. I finally have the healthy smile I deserve!"</p>
+          <span class="testimonial-card__author">Linda W.</span>
+          <span class="testimonial-card__role">General Dentistry Patient</span>
+        </div>
+        <!-- Slide 6 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-card__text">"I got Invisalign at Emmanuel Dental and the results exceeded my expectations. The process was so easy — I barely noticed I was wearing them. Dr. Thomas monitored my progress closely and my teeth are perfectly aligned now. Worth every penny!"</p>
+          <span class="testimonial-card__author">Robert T.</span>
+          <span class="testimonial-card__role">Invisalign Patient</span>
+        </div>
+        <!-- Slide 7 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-card__text">"The teeth whitening treatment I received was phenomenal. My teeth are several shades brighter, and the whole process took less than an hour. The office is modern, clean, and the team really knows how to make you feel welcome."</p>
+          <span class="testimonial-card__author">Ashley P.</span>
+          <span class="testimonial-card__role">Teeth Whitening Patient</span>
+        </div>
+        <!-- Slide 8 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-card__text">"After losing a tooth in an accident, Dr. Thomas placed an implant that looks completely natural. Nobody can tell it's not my real tooth! The whole team was supportive throughout my recovery. I'm so grateful for their expertise."</p>
+          <span class="testimonial-card__author">Michael H.</span>
+          <span class="testimonial-card__role">Dental Implant Patient</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       8. PRACTICE OVERVIEW — "YOUR SMILE, OUR PRIORITY"
+       8. ABOUT DR. PRAMOD THOMAS
        ============================================================ -->
-  <section class="smile-priority" id="smile-priority">
+  <section class="about-doctor" id="about-doctor">
     <div class="container">
-      <div class="smile-priority__content">
-        <div class="smile-priority__image animate-on-scroll animate-on-scroll--left">
-          <img src="asset/meet-dr-section-1.png" alt="Emmanuel Dental team caring for patients">
+      <div class="about-doctor__content">
+        <div class="about-doctor__image animate-on-scroll animate-on-scroll--left">
+          <img src="asset/Dr-Thomas1.png" alt="Dr. Pramod Thomas — Lead Dentist at Emmanuel Dental">
         </div>
-        <div class="smile-priority__text animate-on-scroll animate-on-scroll--right">
-          <h2>Your Smile, <span>Our Priority</span></h2>
+        <div class="about-doctor__text animate-on-scroll animate-on-scroll--right">
+          <span class="about-doctor__label">Get to Know</span>
+          <h2>About Dr. Pramod Thomas</h2>
           <p>
-            At Emmanuel Dental &amp; Orthodontics, we believe every patient deserves a healthy, beautiful smile. Our practice combines state-of-the-art technology with a warm, welcoming atmosphere to deliver dental care that exceeds expectations.
+            With over <strong>25 years of experience</strong>, Dr. Pramod Thomas has built Emmanuel Dental &amp; Orthodontics into one of Richardson's most trusted dental practices. His dedication to continuing education ensures patients receive the most advanced and effective treatments available.
           </p>
           <p>
-            From routine check-ups to complex restorative procedures, our team is committed to providing personalized treatment plans that address your unique dental needs. We take the time to listen, educate, and ensure you feel confident in every step of your dental journey.
+            Dr. Thomas takes a personalized approach to every patient, combining clinical excellence with genuine compassion. He is committed to making dental care accessible, comfortable, and rewarding for patients of all ages.
           </p>
-          <div class="smile-priority__highlights">
-            <div class="highlight-box">
-              <div class="highlight-box__icon"><i class="fas fa-heart"></i></div>
-              <span class="highlight-box__text">Compassionate Care</span>
+          <div class="about-doctor__highlights">
+            <div class="about-doctor__highlight">
+              <div class="about-doctor__highlight-icon"><i class="fas fa-award"></i></div>
+              <div>
+                <strong>25+ Years</strong>
+                <span>Experience</span>
+              </div>
             </div>
-            <div class="highlight-box">
-              <div class="highlight-box__icon"><i class="fas fa-microchip"></i></div>
-              <span class="highlight-box__text">Advanced Technology</span>
+            <div class="about-doctor__highlight">
+              <div class="about-doctor__highlight-icon"><i class="fas fa-graduation-cap"></i></div>
+              <div>
+                <strong>DDS</strong>
+                <span>Doctor of Dental Surgery</span>
+              </div>
             </div>
-            <div class="highlight-box">
-              <div class="highlight-box__icon"><i class="fas fa-users"></i></div>
-              <span class="highlight-box__text">Family-Friendly</span>
+            <div class="about-doctor__highlight">
+              <div class="about-doctor__highlight-icon"><i class="fas fa-tooth"></i></div>
+              <div>
+                <strong>Dental Implants</strong>
+                <span>Advanced Placement</span>
+              </div>
             </div>
-            <div class="highlight-box">
-              <div class="highlight-box__icon"><i class="fas fa-award"></i></div>
-              <span class="highlight-box__text">25+ Years Experience</span>
+            <div class="about-doctor__highlight">
+              <div class="about-doctor__highlight-icon"><i class="fas fa-teeth"></i></div>
+              <div>
+                <strong>Orthodontics</strong>
+                <span>Braces &amp; Invisalign</span>
+              </div>
+            </div>
+            <div class="about-doctor__highlight">
+              <div class="about-doctor__highlight-icon"><i class="fas fa-star"></i></div>
+              <div>
+                <strong>Cosmetic Dentistry</strong>
+                <span>Veneers &amp; Whitening</span>
+              </div>
             </div>
           </div>
+          <a href="#" class="btn btn--gold btn--lg btn--schedule" data-schedule>
+            <i class="fas fa-calendar-check"></i> Book Appointment
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       9. FIND THE PERFECT ORTHODONTIC TREATMENT
+       SMILE GALLERY (Before & After)
        ============================================================ -->
-  <section class="orthodontics" id="orthodontics">
+  <section class="smile-gallery-section" id="smile-gallery">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">Find The Perfect Orthodontic Treatment For You.</h2>
-      <p class="section-subtitle animate-on-scroll">We offer a range of orthodontic solutions to fit your lifestyle, budget, and smile goals.</p>
-      <div class="orthodontics__content">
-        <!-- Braces Option -->
-        <div class="orthodontics__text animate-on-scroll animate-on-scroll--left">
-          <h3>Braces &amp; Fastbraces</h3>
-          <p>Traditional braces and Fastbraces provide reliable, effective teeth straightening for patients of all ages. Fastbraces use innovative bracket technology to move both the crown and root of teeth simultaneously, delivering results in about half the time of traditional braces.</p>
-          <div class="orthodontics__features">
-            <div class="orthodontics__feature">
-              <i class="fas fa-check-circle"></i>
-              <span>Faster treatment times with Fastbraces technology</span>
-            </div>
-            <div class="orthodontics__feature">
-              <i class="fas fa-check-circle"></i>
-              <span>Effective for complex bite and alignment issues</span>
-            </div>
-            <div class="orthodontics__feature">
-              <i class="fas fa-check-circle"></i>
-              <span>Affordable payment plans available</span>
-            </div>
+      <h3 class="section-title animate-on-scroll">Smile Transformations</h3>
+      <p class="section-subtitle animate-on-scroll">See real results from our patients — drag the slider to compare before and after.</p>
+      <div class="ba-gallery__grid">
+        <div class="ba-slider animate-on-scroll">
+          <div class="ba-slider__after">
+            <img src="asset/slider_img_1.png" alt="After orthodontic treatment">
           </div>
-          <a href="#" class="btn btn--gold btn--schedule" data-schedule>Get a Free Consultation</a>
-        </div>
-        <div class="animate-on-scroll animate-on-scroll--right">
-          <img src="asset/nbarce-girl.png" alt="Girl smiling with braces" class="img-rounded img-shadow">
-        </div>
-      </div>
-      <div class="orthodontics__content" style="margin-top:var(--sp-xl)">
-        <!-- Invisalign Option -->
-        <div class="animate-on-scroll animate-on-scroll--left">
-          <img src="asset/invislign-boy.png" alt="Man with Invisalign clear aligners" class="img-rounded img-shadow">
-        </div>
-        <div class="orthodontics__text animate-on-scroll animate-on-scroll--right">
-          <h3>Invisalign Clear Aligners</h3>
-          <p>Straighten your teeth without anyone knowing. Invisalign uses a series of custom-made, virtually invisible aligners that gradually shift your teeth into place — no metal wires or brackets needed.</p>
-          <div class="orthodontics__features">
-            <div class="orthodontics__feature">
-              <i class="fas fa-check-circle"></i>
-              <span>Nearly invisible — most people won't notice</span>
-            </div>
-            <div class="orthodontics__feature">
-              <i class="fas fa-check-circle"></i>
-              <span>Removable for easy eating and cleaning</span>
-            </div>
-            <div class="orthodontics__feature">
-              <i class="fas fa-check-circle"></i>
-              <span>Comfortable, smooth plastic with no sharp edges</span>
-            </div>
+          <div class="ba-slider__before">
+            <img src="asset/slider_img_2.png" alt="Before orthodontic treatment">
           </div>
-          <a href="#" class="btn btn--gold btn--schedule" data-schedule>Get a Free Consultation</a>
+          <div class="ba-slider__handle"></div>
+          <span class="ba-slider__label ba-slider__label--before">Before</span>
+          <span class="ba-slider__label ba-slider__label--after">After</span>
         </div>
-      </div>
-
-      <!-- Before & After Gallery -->
-      <div class="ba-gallery" id="smile-gallery">
-        <h3 class="section-title animate-on-scroll">Smile Transformations</h3>
-        <p class="section-subtitle animate-on-scroll">See real results from our patients — drag the slider to compare before and after.</p>
-        <div class="ba-gallery__grid">
-          <div class="ba-slider animate-on-scroll">
-            <div class="ba-slider__after">
-              <img src="asset/slider_img_1.png" alt="After orthodontic treatment">
-            </div>
-            <div class="ba-slider__before">
-              <img src="asset/slider_img_2.png" alt="Before orthodontic treatment">
-            </div>
-            <div class="ba-slider__handle"></div>
-            <span class="ba-slider__label ba-slider__label--before">Before</span>
-            <span class="ba-slider__label ba-slider__label--after">After</span>
+        <div class="ba-slider animate-on-scroll">
+          <div class="ba-slider__after">
+            <img src="asset/slider_img_3.png" alt="After orthodontic treatment">
           </div>
-          <div class="ba-slider animate-on-scroll">
-            <div class="ba-slider__after">
-              <img src="asset/slider_img_3.png" alt="After orthodontic treatment">
-            </div>
-            <div class="ba-slider__before">
-              <img src="asset/slider_img_4.png" alt="Before orthodontic treatment">
-            </div>
-            <div class="ba-slider__handle"></div>
-            <span class="ba-slider__label ba-slider__label--before">Before</span>
-            <span class="ba-slider__label ba-slider__label--after">After</span>
+          <div class="ba-slider__before">
+            <img src="asset/slider_img_4.png" alt="Before orthodontic treatment">
           </div>
+          <div class="ba-slider__handle"></div>
+          <span class="ba-slider__label ba-slider__label--before">Before</span>
+          <span class="ba-slider__label ba-slider__label--after">After</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       10. FEATURED SERVICES (Dark Background)
+       FEATURED SERVICES (Dark Background)
        ============================================================ -->
   <section class="featured-services" id="featured-services">
     <div class="container">
@@ -585,7 +579,7 @@
           <div class="featured-card__icon"><i class="fas fa-teeth"></i></div>
           <h3 class="featured-card__title">Fastbraces</h3>
           <p class="featured-card__text">Revolutionary bracket technology that straightens teeth in about half the time of traditional braces, with less discomfort.</p>
-          <a href="#orthodontics" class="featured-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+          <a href="#services" class="featured-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
         </div>
         <!-- Dental Implants -->
         <div class="featured-card animate-on-scroll">
@@ -613,7 +607,7 @@
   </section>
 
   <!-- ============================================================
-       11. STATISTICS COUNTER SECTION
+       STATISTICS COUNTER SECTION
        ============================================================ -->
   <section class="stats" id="stats">
     <div class="stats__bg" style="background-image:url('asset/counter_bg.jpg')"></div>
@@ -645,7 +639,7 @@
   </section>
 
   <!-- ============================================================
-       12. FINANCING AVAILABLE SECTION
+       FINANCING AVAILABLE SECTION
        ============================================================ -->
   <section class="financing" id="financing">
     <div class="container">
@@ -673,91 +667,7 @@
   </section>
 
   <!-- ============================================================
-       13. OUR TEAM SECTION
-       ============================================================ -->
-  <section class="team" id="team">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">Dr. Pramod Thomas</h2>
-      <p class="section-subtitle animate-on-scroll">Get to know our lead dentist and the dedicated team behind Emmanuel Dental &amp; Orthodontics.</p>
-      <div class="team__grid stagger-children">
-        <div class="team__member animate-on-scroll">
-          <img src="asset/Dr-Thomas1.png" alt="Dr. Pramod Thomas at Emmanuel Dental" class="team__member-image">
-          <div class="team__member-info">
-            <h3 class="team__member-name">Dr. Pramod Thomas</h3>
-            <span class="team__member-role">Lead Dentist &amp; Founder</span>
-          </div>
-        </div>
-        <div class="team__member animate-on-scroll">
-          <img src="asset/team-img-1.jpg" alt="Emmanuel Dental team member" class="team__member-image">
-          <div class="team__member-info">
-            <h3 class="team__member-name">Our Dental Team</h3>
-            <span class="team__member-role">Dental Professionals</span>
-          </div>
-        </div>
-        <div class="team__member animate-on-scroll">
-          <img src="asset/team-img-2.jpg" alt="Emmanuel Dental team member" class="team__member-image">
-          <div class="team__member-info">
-            <h3 class="team__member-name">Our Support Staff</h3>
-            <span class="team__member-role">Patient Care Team</span>
-          </div>
-        </div>
-      </div>
-      <div class="team__group animate-on-scroll">
-        <img src="asset/team-img-3.jpg" alt="The entire Emmanuel Dental and Orthodontics team">
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       14. BLOG SECTION
-       ============================================================ -->
-  <section class="blog" id="blog">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">Latest From Our Blog</h2>
-      <p class="section-subtitle animate-on-scroll">Stay informed with the latest dental health tips, practice news, and smile inspiration.</p>
-      <div class="blog__grid stagger-children">
-        <!-- Blog Card 1 -->
-        <div class="blog-card animate-on-scroll">
-          <div class="blog-card__image">
-            <img src="asset/meet-dr-section-2.png" alt="Dental health tips blog post">
-          </div>
-          <div class="blog-card__body">
-            <span class="blog-card__date"><i class="far fa-calendar-alt"></i> January 15, 2025</span>
-            <h3 class="blog-card__title">5 Tips for Maintaining a Healthy Smile This Year</h3>
-            <p class="blog-card__text">Start the new year right with these essential dental hygiene habits that will keep your smile bright and healthy all year long.</p>
-            <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Blog Card 2 -->
-        <div class="blog-card animate-on-scroll">
-          <div class="blog-card__image">
-            <img src="asset/meet-dr-section-4.jpg" alt="Invisalign vs braces comparison">
-          </div>
-          <div class="blog-card__body">
-            <span class="blog-card__date"><i class="far fa-calendar-alt"></i> December 10, 2024</span>
-            <h3 class="blog-card__title">Invisalign vs. Braces: Which Is Right for You?</h3>
-            <p class="blog-card__text">Explore the pros and cons of Invisalign and traditional braces to determine which orthodontic treatment suits your needs best.</p>
-            <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Blog Card 3 -->
-        <div class="blog-card animate-on-scroll">
-          <div class="blog-card__image">
-            <img src="asset/meet-dr-section-5.jpg" alt="Dental implant benefits">
-          </div>
-          <div class="blog-card__body">
-            <span class="blog-card__date"><i class="far fa-calendar-alt"></i> November 22, 2024</span>
-            <h3 class="blog-card__title">Everything You Need to Know About Dental Implants</h3>
-            <p class="blog-card__text">Learn about the benefits of dental implants, the procedure process, and why they are considered the gold standard for tooth replacement.</p>
-            <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       14. CONTACT US / WALK IN SECTION
+       CONTACT US / WALK IN SECTION
        ============================================================ -->
   <section class="contact" id="contact">
     <div class="container">
@@ -863,81 +773,106 @@
   </section>
 
   <!-- ============================================================
-       15. FOOTER
+       FOOTER (Redesigned)
        ============================================================ -->
   <footer class="footer" id="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <!-- Column 1: Brand -->
-        <div class="footer__brand">
-          <a href="/" class="footer__logo">
-            <img src="asset/logo.png" alt="Emmanuel Dental &amp; Orthodontics Logo">
-          </a>
-          <p>Providing exceptional family dentistry and orthodontic care in Richardson, TX for over 25 years. Your smile is our passion.</p>
-          <div class="footer__social">
-            <a href="#" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="footer__social-link" aria-label="TikTok" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
-            <a href="#" class="footer__social-link" aria-label="Google" target="_blank" rel="noopener"><i class="fab fa-google"></i></a>
-            <a href="#" class="footer__social-link" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
+    <!-- Team Images Carousel -->
+    <div class="footer-team-carousel-wrap">
+      <div class="owl-carousel footer-team-carousel">
+        <div class="footer-team-slide"><img src="asset/Dr-Thomas1.png" alt="Dr. Pramod Thomas"></div>
+        <div class="footer-team-slide"><img src="asset/team-img-1.jpg" alt="Emmanuel Dental Team"></div>
+        <div class="footer-team-slide"><img src="asset/team-img-2.jpg" alt="Emmanuel Dental Staff"></div>
+        <div class="footer-team-slide"><img src="asset/team-img-3.jpg" alt="Emmanuel Dental Group"></div>
+        <div class="footer-team-slide"><img src="asset/drpramod.png" alt="Dr. Pramod Thomas"></div>
+        <div class="footer-team-slide"><img src="asset/DrSilva-e1752786754921.png" alt="Dr. Fred Silva"></div>
+      </div>
+    </div>
 
-        <!-- Column 2: Quick Links (Services) -->
-        <div class="footer__column">
-          <h4>Our Services</h4>
-          <ul class="footer__links">
-            <li><a href="#services" class="footer__link"><i class="fas fa-chevron-right"></i> General Dentistry</a></li>
-            <li><a href="#services" class="footer__link"><i class="fas fa-chevron-right"></i> Cosmetic Dentistry</a></li>
-            <li><a href="#services" class="footer__link"><i class="fas fa-chevron-right"></i> Dental Implants</a></li>
-            <li><a href="#orthodontics" class="footer__link"><i class="fas fa-chevron-right"></i> Orthodontics / Braces</a></li>
-            <li><a href="#orthodontics" class="footer__link"><i class="fas fa-chevron-right"></i> Invisalign</a></li>
-            <li><a href="#featured-services" class="footer__link"><i class="fas fa-chevron-right"></i> Smile Makeover</a></li>
-          </ul>
-        </div>
+    <!-- Google Maps -->
+    <div class="footer-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.5!2d-96.7298!3d32.9487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c1f1e5f6b1a1b%3A0x0!2s445+Walnut+St+%23101%2C+Richardson%2C+TX+75081!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+        width="100%"
+        height="350"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Emmanuel Dental &amp; Orthodontics Location">
+      </iframe>
+    </div>
 
-        <!-- Column 3: Patient Resources -->
-        <div class="footer__column">
-          <h4>Patient Resources</h4>
-          <ul class="footer__links">
-            <li><a href="#financing" class="footer__link"><i class="fas fa-chevron-right"></i> Accepted Insurance</a></li>
-            <li><a href="#financing" class="footer__link"><i class="fas fa-chevron-right"></i> Payment Methods</a></li>
-            <li><a href="#financing" class="footer__link"><i class="fas fa-chevron-right"></i> In-House Financing</a></li>
-            <li><a href="#financing" class="footer__link"><i class="fas fa-chevron-right"></i> Patient Specials</a></li>
-            <li><a href="#blog" class="footer__link"><i class="fas fa-chevron-right"></i> Blog</a></li>
-            <li><a href="#" class="footer__link"><i class="fas fa-chevron-right"></i> Pay Now</a></li>
-          </ul>
-        </div>
+    <!-- Footer Content -->
+    <div class="footer__main">
+      <div class="container">
+        <div class="footer__grid">
+          <!-- Column 1: Brand + Social -->
+          <div class="footer__brand">
+            <a href="/" class="footer__logo">
+              <img src="asset/logo.png" alt="Emmanuel Dental &amp; Orthodontics Logo">
+            </a>
+            <p>Providing exceptional family dentistry and orthodontic care in Richardson, TX for over 25 years. Your smile is our passion.</p>
+            <div class="footer__social">
+              <a href="#" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="footer__social-link" aria-label="TikTok" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+              <a href="#" class="footer__social-link" aria-label="Google" target="_blank" rel="noopener"><i class="fab fa-google"></i></a>
+              <a href="#" class="footer__social-link" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
 
-        <!-- Column 4: Contact Info & Hours -->
-        <div class="footer__column">
-          <h4>Contact Us</h4>
-          <div class="footer__contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>445 Walnut Suite #101<br>Richardson, TX 75081</span>
+          <!-- Column 2: Contact Details -->
+          <div class="footer__column">
+            <h4>Contact Details</h4>
+            <div class="footer__contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>445 Walnut Suite #101<br>Richardson, TX 75081</span>
+            </div>
+            <div class="footer__contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <a href="tel:+19722002995">(972) 200-2995</a>
+            </div>
+            <div class="footer__contact-item">
+              <i class="fas fa-globe"></i>
+              <a href="https://drpramod.com" target="_blank" rel="noopener">drpramod.com</a>
+            </div>
           </div>
-          <div class="footer__contact-item">
-            <i class="fas fa-phone-alt"></i>
-            <a href="tel:+19722002995">(972) 200-2995</a>
+
+          <!-- Column 3: Office Hours -->
+          <div class="footer__column">
+            <h4>Office Hours</h4>
+            <div class="footer__hours">
+              <div class="footer__hours-row"><span>Mon – Thu</span><span>9:00 AM – 6:00 PM</span></div>
+              <div class="footer__hours-row"><span>Friday</span><span>9:00 AM – 5:00 PM</span></div>
+              <div class="footer__hours-row"><span>Saturday</span><span>By Appointment</span></div>
+              <div class="footer__hours-row"><span>Sunday</span><span>Closed</span></div>
+            </div>
           </div>
-          <div class="footer__contact-item">
-            <i class="fas fa-globe"></i>
-            <a href="https://drpramod.com" target="_blank" rel="noopener">drpramod.com</a>
-          </div>
-          <div class="footer__contact-item">
-            <i class="fas fa-clock"></i>
-            <span>Mon–Thu: 9 AM – 6 PM<br>Fri: 9 AM – 5 PM<br>Sat: By Appointment<br>Sun: Closed</span>
+
+          <!-- Column 4: Quick Links -->
+          <div class="footer__column">
+            <h4>Quick Links</h4>
+            <ul class="footer__links">
+              <li><a href="#home" class="footer__link"><i class="fas fa-chevron-right"></i> Home</a></li>
+              <li><a href="#contact" class="footer__link"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+              <li><a href="#" class="footer__link"><i class="fas fa-chevron-right"></i> Accessibility Statements</a></li>
+              <li><a href="#" class="footer__link"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+              <li><a href="#" class="footer__link"><i class="fas fa-chevron-right"></i> Site Map</a></li>
+            </ul>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Footer Bottom -->
-      <div class="footer__bottom">
-        <p class="footer__copyright">&copy; 2025 Emmanuel Dental &amp; Orthodontics. All Rights Reserved.</p>
-        <div class="footer__bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Sitemap</a>
+    <!-- Copyright Bar -->
+    <div class="footer__bottom">
+      <div class="container">
+        <div class="footer__bottom-inner">
+          <p class="footer__copyright">&copy; 2025 Emmanuel Dental &amp; Orthodontics. All Rights Reserved.</p>
+          <div class="footer__bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Sitemap</a>
+          </div>
         </div>
       </div>
     </div>
@@ -952,6 +887,11 @@
   <script>
     window.nexhealthScheduleUrl = 'https://www.nexhealth.com/appt/emmanuel-dental';
   </script>
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Owl Carousel JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q42BSqod/rlTvMWoMRJbJKc60zJJ/kATAaXn0r2GMcrsPNPm5+FLQMeChiNR2xg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- Main JavaScript -->
   <script src="js/main.js"></script>

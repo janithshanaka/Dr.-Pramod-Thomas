@@ -798,76 +798,109 @@ p {
   background-color: var(--clr-white);
 }
 
-.doctors__grid {
+/* Doctor Profile — Side-by-side layout */
+.doctor-profile {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--sp-xl);
+  align-items: center;
   margin-top: var(--sp-xl);
+  padding: var(--sp-lg) 0;
 }
 
-.doctor-card {
-  text-align: center;
-  padding: var(--sp-lg);
+.doctor-profile + .doctor-profile {
+  border-top: 1px solid var(--clr-border);
+}
+
+.doctor-profile__image {
   border-radius: var(--radius-lg);
-  background-color: var(--clr-white);
-  box-shadow: var(--shadow-card);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.doctor-card:hover {
-  transform: translateY(-8px);
+  overflow: hidden;
   box-shadow: var(--shadow-lg);
+  position: relative;
 }
 
-.doctor-card__image {
-  width: 200px;
-  height: 200px;
-  border-radius: var(--radius-full);
+.doctor-profile__image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-gold);
+}
+
+.doctor-profile__image img {
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  margin: 0 auto var(--sp-md);
-  border: 4px solid var(--clr-gold);
-  box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+  display: block;
 }
 
-.doctor-card__name {
+.doctor-profile__label {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  background: var(--gradient-gold);
+  color: var(--clr-navy-dark);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--sp-sm);
+}
+
+.doctor-profile__name {
   font-family: var(--ff-heading);
-  font-size: var(--fs-xl);
+  font-size: var(--fs-2xl);
   color: var(--clr-navy-dark);
   margin-bottom: 0.25rem;
 }
 
-.doctor-card__specialty {
+.doctor-profile__specialty {
   color: var(--clr-gold);
   font-size: var(--fs-sm);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: var(--sp-sm);
-}
-
-.doctor-card__bio {
-  color: #666;
-  font-size: var(--fs-sm);
-  line-height: 1.7;
   margin-bottom: var(--sp-md);
 }
 
-.doctor-card__credentials {
+.doctor-profile__bio {
+  color: #666;
+  font-size: var(--fs-base);
+  line-height: 1.8;
+  margin-bottom: var(--sp-md);
+}
+
+.doctor-profile__credentials {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0.5rem;
-  margin-bottom: var(--sp-md);
+  margin-bottom: var(--sp-lg);
 }
 
-.doctor-card__credential-tag {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
+.doctor-profile__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
   background-color: var(--clr-off-white);
   color: var(--clr-navy-dark);
   font-size: var(--fs-xs);
   border-radius: var(--radius-xl);
   font-weight: 600;
+  border: 1px solid var(--clr-border);
+  transition: all var(--transition-fast);
+}
+
+.doctor-profile__tag:hover {
+  border-color: var(--clr-gold);
+  background-color: rgba(201, 169, 97, 0.1);
+}
+
+.doctor-profile__tag i {
+  color: var(--clr-gold);
+  font-size: var(--fs-xs);
 }
 
 /* ==========================================================
@@ -961,13 +994,6 @@ p {
 .services {
   padding: var(--section-padding);
   background-color: var(--clr-white);
-}
-
-.services__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--sp-lg);
-  margin-top: var(--sp-xl);
 }
 
 .service-card {
@@ -1199,69 +1225,97 @@ p {
    ========================================================== */
 
 /* ==========================================================
-   12. Smile Priority (Practice Overview)
+   12. About Dr. Pramod Thomas
    ========================================================== */
-.smile-priority {
+.about-doctor {
   padding: var(--section-padding);
-  background-color: var(--clr-white);
+  background: linear-gradient(135deg, var(--clr-off-white) 0%, var(--clr-white) 100%);
 }
 
-.smile-priority__content {
+.about-doctor__content {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--sp-xl);
   align-items: center;
 }
 
-.smile-priority__image {
+.about-doctor__image {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  position: relative;
 }
 
-.smile-priority__image img {
+.about-doctor__image img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
+  display: block;
 }
 
-.smile-priority__text h2 {
-  margin-bottom: var(--sp-sm);
-}
-
-.smile-priority__text h2 span {
+.about-doctor__label {
+  display: inline-block;
   color: var(--clr-gold);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
 }
 
-.smile-priority__text p {
+.about-doctor__text h2 {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-2xl);
+  color: var(--clr-navy-dark);
+  margin-bottom: var(--sp-md);
+  position: relative;
+  padding-bottom: var(--sp-sm);
+}
+
+.about-doctor__text h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-gold);
+  border-radius: 2px;
+}
+
+.about-doctor__text p {
   color: #666;
+  line-height: 1.8;
   margin-bottom: var(--sp-md);
 }
 
-.smile-priority__highlights {
+.about-doctor__highlights {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--sp-sm);
-  margin-top: var(--sp-md);
+  margin: var(--sp-lg) 0;
 }
 
-.highlight-box {
+.about-doctor__highlight {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: var(--sp-sm);
+  align-items: center;
+  gap: var(--sp-sm);
+  padding: 0.75rem var(--sp-sm);
+  background: var(--clr-white);
   border-radius: var(--radius-md);
-  background-color: var(--clr-off-white);
-  transition: transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  border-left: 3px solid var(--clr-gold);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.highlight-box:hover {
-  transform: translateY(-2px);
+.about-doctor__highlight:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
 }
 
-.highlight-box__icon {
-  width: 40px;
-  height: 40px;
+.about-doctor__highlight-icon {
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-full);
   background: var(--gradient-gold);
   display: flex;
@@ -1269,13 +1323,25 @@ p {
   justify-content: center;
   color: var(--clr-navy-dark);
   flex-shrink: 0;
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
 }
 
-.highlight-box__text {
+.about-doctor__highlight strong {
+  display: block;
   font-size: var(--fs-sm);
-  font-weight: 600;
   color: var(--clr-navy-dark);
+  font-weight: 700;
+}
+
+.about-doctor__highlight span {
+  font-size: var(--fs-xs);
+  color: #888;
+}
+
+/* Smile Gallery standalone section */
+.smile-gallery-section {
+  padding: var(--section-padding);
+  background-color: var(--clr-off-white);
 }
 
 /* ==========================================================
@@ -1519,74 +1585,82 @@ p {
 }
 
 /* ==========================================================
-   16. Doctor + Team Section
+   16. Testimonial Cards (Owl Carousel)
    ========================================================== */
-.team {
+.testimonials {
   padding: var(--section-padding);
-  background-color: var(--clr-white);
+  background-color: var(--clr-off-white);
 }
 
-.team__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--sp-xl);
-  margin-top: var(--sp-xl);
-}
-
-.team__member {
-  position: relative;
+.testimonial-card {
+  background: var(--clr-white);
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
+  padding: var(--sp-lg);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  margin: var(--sp-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.team__member-image {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.team__member:hover .team__member-image {
-  transform: scale(1.03);
-}
-
-.team__member-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--sp-lg) var(--sp-md);
-  background: linear-gradient(transparent, rgba(26, 39, 68, 0.9));
-  color: var(--clr-white);
-}
-
-.team__member-name {
-  font-family: var(--ff-heading);
-  font-size: var(--fs-xl);
-  color: var(--clr-white);
-  margin-bottom: 0.2rem;
-}
-
-.team__member-role {
-  color: var(--clr-gold);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Team group photo variant */
-.team__group {
-  margin-top: var(--sp-xl);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+.testimonial-card:hover {
+  transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
 
-.team__group img {
-  width: 100%;
-  object-fit: cover;
+.testimonial-card__stars {
+  color: var(--clr-gold);
+  font-size: var(--fs-lg);
+  margin-bottom: var(--sp-sm);
+}
+
+.testimonial-card__text {
+  color: #666;
+  font-size: var(--fs-sm);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: var(--sp-md);
+}
+
+.testimonial-card__author {
+  display: block;
+  font-weight: 700;
+  color: var(--clr-navy-dark);
+  font-size: var(--fs-base);
+}
+
+.testimonial-card__role {
+  display: block;
+  color: var(--clr-gold);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.25rem;
+}
+
+/* Service Card Collapsible Extra Content */
+.service-card__extra {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0;
+}
+
+.service-card__extra--open {
+  max-height: 600px;
+  padding-top: var(--sp-sm);
+}
+
+.service-card__extra p {
+  color: #666;
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  border-top: 1px solid var(--clr-border);
+  padding-top: var(--sp-sm);
+}
+
+.service-card__toggle.active i {
+  transform: rotate(90deg);
 }
 
 /* ==========================================================
@@ -1765,17 +1839,87 @@ p {
 /* ==========================================================
    18. Footer
    ========================================================== */
+/* Footer Team Carousel */
+.footer-team-carousel-wrap {
+  background-color: var(--clr-navy-light);
+  padding: var(--sp-lg) 0;
+}
+
+.footer-team-slide {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  margin: 0 0.5rem;
+}
+
+.footer-team-slide img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-slow);
+}
+
+.footer-team-slide:hover img {
+  transform: scale(1.05);
+}
+
+/* Footer Map */
+.footer-map {
+  width: 100%;
+  line-height: 0;
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+}
+
+/* Footer Hours */
+.footer__hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__hours-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-sm);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer__hours-row span:first-child {
+  color: var(--clr-text-muted);
+}
+
+.footer__hours-row span:last-child {
+  font-weight: 600;
+  color: var(--clr-white);
+}
+
 .footer {
   background-color: var(--clr-navy-dark);
   color: var(--clr-text-muted);
-  padding-top: var(--sp-3xl);
+}
+
+.footer__main {
+  padding: var(--sp-3xl) 0 var(--sp-xl);
 }
 
 .footer__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--sp-xl);
-  padding-bottom: var(--sp-xl);
+}
+
+.footer__bottom-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+  align-items: center;
+  text-align: center;
 }
 
 .footer__brand {
@@ -1898,11 +2042,7 @@ p {
 .footer__bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: var(--sp-md) 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-sm);
-  align-items: center;
-  text-align: center;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .footer__copyright {
@@ -1922,6 +2062,93 @@ p {
 
 .footer__bottom-links a:hover {
   color: var(--clr-gold);
+}
+
+
+/* ==========================================================
+   Owl Carousel Customizations
+   ========================================================== */
+.owl-carousel .owl-nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-sm);
+  margin-top: var(--sp-md);
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--clr-navy-dark) !important;
+  color: var(--clr-white) !important;
+  font-size: var(--fs-lg) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  border: 2px solid transparent;
+}
+
+.owl-carousel .owl-nav button.owl-prev:hover,
+.owl-carousel .owl-nav button.owl-next:hover {
+  background: var(--gradient-gold) !important;
+  color: var(--clr-navy-dark) !important;
+  transform: translateY(-2px);
+}
+
+.owl-carousel .owl-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: var(--sp-md);
+}
+
+.owl-carousel .owl-dot span {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: var(--clr-border) !important;
+  transition: all var(--transition-fast);
+}
+
+.owl-carousel .owl-dot.active span {
+  background: var(--clr-gold) !important;
+  width: 30px;
+  border-radius: 6px;
+}
+
+/* Services Carousel */
+.services-carousel .service-card {
+  margin: 0;
+}
+
+.services-carousel .owl-stage-outer {
+  padding: var(--sp-sm) 0;
+}
+
+/* Testimonials Carousel */
+.testimonials-carousel .owl-stage-outer {
+  padding: var(--sp-sm) 0;
+}
+
+/* Footer Team Carousel - lighter nav */
+.footer-team-carousel .owl-nav button.owl-prev,
+.footer-team-carousel .owl-nav button.owl-next {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.footer-team-carousel .owl-nav button.owl-prev:hover,
+.footer-team-carousel .owl-nav button.owl-next:hover {
+  background: var(--gradient-gold) !important;
+}
+
+.footer-team-carousel .owl-dot span {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.footer-team-carousel .owl-dot.active span {
+  background: var(--clr-gold) !important;
 }
 
 /* ==========================================================
@@ -2046,9 +2273,7 @@ p {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .services__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
 
   .ba-gallery__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2086,21 +2311,35 @@ p {
     font-size: var(--fs-5xl);
   }
 
-  .doctors__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .doctor-profile {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .doctor-profile--reverse .doctor-profile__image {
+    order: 2;
+  }
+
+  .doctor-profile--reverse .doctor-profile__content {
+    order: 1;
+  }
+
+  .about-doctor__content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-doctor__text h2 {
+    font-size: var(--fs-3xl);
+  }
+
+  .about-doctor__highlights {
+    grid-template-columns: 1fr 1fr;
   }
 
   .social-feed__grid {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .orthodontics__content {
-    grid-template-columns: 1fr 1fr;
-  }
 
-  .smile-priority__content {
-    grid-template-columns: 1fr 1fr;
-  }
 
   .stats__grid {
     grid-template-columns: repeat(4, 1fr);
@@ -2114,15 +2353,13 @@ p {
     grid-template-columns: 1fr 1fr;
   }
 
-  .team__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
 
   .contact__grid {
     grid-template-columns: 1fr 1fr;
   }
 
-  .footer__bottom {
+  .footer__bottom-inner {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -2155,17 +2392,13 @@ p {
     font-size: var(--fs-xs);
   }
 
-  .services__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+
 
   .featured-services__grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .team__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+
 
   .footer__grid {
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
@@ -2197,9 +2430,7 @@ p {
     font-size: 4rem;
   }
 
-  .services__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+
 
   .featured-services__grid {
     grid-template-columns: repeat(4, 1fr);
