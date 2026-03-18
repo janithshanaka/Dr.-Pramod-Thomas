@@ -1373,7 +1373,7 @@ p {
 .stats__bg {
   position: absolute;
   inset: 0;
-  background-image: url('../asset/stats-bg.jpg');
+  background-image: url('../asset/counter_bg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

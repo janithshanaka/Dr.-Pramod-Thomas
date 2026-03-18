@@ -284,7 +284,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Single set of global move/end listeners
   document.addEventListener('mousemove', function (e) {
     if (!activeSlider) return;
-    e.preventDefault();
     updateSlider(activeSlider, getPositionPercent(e.clientX));
   });
 
