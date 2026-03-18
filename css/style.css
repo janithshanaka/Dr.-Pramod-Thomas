@@ -567,6 +567,8 @@ p {
 /* Header CTA */
 .header__cta {
   display: none;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* Mobile hamburger */
@@ -2148,6 +2150,11 @@ p {
     display: inline-flex;
   }
 
+  .nav__link {
+    padding: 0.5rem 0.6rem;
+    font-size: var(--fs-xs);
+  }
+
   .services__grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -2179,6 +2186,11 @@ p {
 
   .container {
     padding: 0 var(--sp-lg);
+  }
+
+  .nav__link {
+    padding: 0.5rem 1rem;
+    font-size: var(--fs-sm);
   }
 
   .hero__title {
