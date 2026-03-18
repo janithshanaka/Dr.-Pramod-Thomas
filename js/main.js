@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!targetEl) return;
 
       e.preventDefault();
-      const headerOffset = header ? header.offsetHeight : 0;
+      const headerOffset = (header ? header.offsetHeight : 0) + (infoBar ? infoBar.offsetHeight : 0);
       const targetPosition = targetEl.getBoundingClientRect().top + window.scrollY - headerOffset;
 
       window.scrollTo({
@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!sections.length || !navLinks.length) return;
 
     const scrollY = window.scrollY;
-    const headerHeight = header ? header.offsetHeight : 0;
+    const headerHeight = (header ? header.offsetHeight : 0) + (infoBar ? infoBar.offsetHeight : 0);
 
     sections.forEach(function (section) {
       const sectionTop = section.offsetTop - headerHeight - 100;
@@ -487,9 +487,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const lightboxNext = document.querySelector('.lightbox__next');
   const galleryItems = document.querySelectorAll('[data-lightbox]');
   let currentLightboxIndex = 0;
+  let lightboxMode = 'gallery'; // 'gallery' or 'footer'
 
   function openLightbox(index) {
     if (!lightbox || !lightboxImg || !galleryItems.length) return;
+    lightboxMode = 'gallery';
     currentLightboxIndex = index;
     lightboxImg.src = galleryItems[index].href;
     lightbox.classList.add('lightbox--open');
@@ -503,13 +505,25 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function showPrevImage() {
-    currentLightboxIndex = (currentLightboxIndex - 1 + galleryItems.length) % galleryItems.length;
-    lightboxImg.src = galleryItems[currentLightboxIndex].href;
+    if (lightboxMode === 'footer') {
+      var sources = getFooterSliderSources();
+      currentFooterLightboxIndex = (currentFooterLightboxIndex - 1 + sources.length) % sources.length;
+      lightboxImg.src = sources[currentFooterLightboxIndex];
+    } else {
+      currentLightboxIndex = (currentLightboxIndex - 1 + galleryItems.length) % galleryItems.length;
+      lightboxImg.src = galleryItems[currentLightboxIndex].href;
+    }
   }
 
   function showNextImage() {
-    currentLightboxIndex = (currentLightboxIndex + 1) % galleryItems.length;
-    lightboxImg.src = galleryItems[currentLightboxIndex].href;
+    if (lightboxMode === 'footer') {
+      var sources = getFooterSliderSources();
+      currentFooterLightboxIndex = (currentFooterLightboxIndex + 1) % sources.length;
+      lightboxImg.src = sources[currentFooterLightboxIndex];
+    } else {
+      currentLightboxIndex = (currentLightboxIndex + 1) % galleryItems.length;
+      lightboxImg.src = galleryItems[currentLightboxIndex].href;
+    }
   }
 
   galleryItems.forEach(function (item, index) {
@@ -535,5 +549,38 @@ document.addEventListener('DOMContentLoaded', function () {
       if (e.key === 'ArrowRight') showNextImage();
     });
   }
+
+  /* --------------------------------------------------------
+     16. Footer Slider Lightbox (event delegation for Owl clones)
+     -------------------------------------------------------- */
+  var footerSliderSources = [];
+  var currentFooterLightboxIndex = 0;
+
+  function getFooterSliderSources() {
+    var els = document.querySelectorAll('.footer-team-carousel .owl-item:not(.cloned) [data-lightbox-footer]');
+    if (els.length) {
+      footerSliderSources = Array.from(els).map(function (el) { return el.getAttribute('href'); });
+    }
+    return footerSliderSources;
+  }
+
+  function openFooterLightbox(src) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxMode = 'footer';
+    var sources = getFooterSliderSources();
+    currentFooterLightboxIndex = sources.indexOf(src);
+    if (currentFooterLightboxIndex === -1) currentFooterLightboxIndex = 0;
+    lightboxImg.src = src;
+    lightbox.classList.add('lightbox--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('[data-lightbox-footer]');
+    if (link) {
+      e.preventDefault();
+      openFooterLightbox(link.getAttribute('href'));
+    }
+  });
 
 }); // end DOMContentLoaded
