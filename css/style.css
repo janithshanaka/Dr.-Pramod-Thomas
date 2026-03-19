@@ -2894,6 +2894,148 @@ p {
   body {
     text-align: center;
   }
+
+  /* 1. Header poster (hero) — decrease spacing, button height & padding */
+  .hero__content {
+    padding: var(--sp-md) var(--sp-sm);
+  }
+
+  .hero__badge {
+    margin-bottom: var(--sp-xs);
+  }
+
+  .hero__description {
+    margin-bottom: var(--sp-sm);
+  }
+
+  .hero__actions {
+    gap: var(--sp-xs);
+  }
+
+  .hero__actions .btn--lg {
+    padding: 0.6rem 1.5rem;
+    font-size: var(--fs-xs);
+  }
+
+  /* 2. Ortho CTA — decrease title font size, add margin-top to button */
+  .ortho-cta__title {
+    font-size: 1.25rem;
+  }
+
+  .ortho-cta__content .btn {
+    margin-top: var(--sp-sm);
+  }
+
+  /* 3. Doctor profiles — center credential tags */
+  .doctor-profile__credentials {
+    justify-content: center;
+  }
+
+  /* 4. Testimonials — remove background image, use solid color on mobile */
+  .testimonials {
+    background: #011f26;
+  }
+
+  /* 5. Header — logo 40px, background #011f26 */
+  .header {
+    background-color: #011f26;
+  }
+
+  .header--scrolled {
+    background-color: #011f26;
+  }
+
+  .header__logo img {
+    height: 40px;
+  }
+
+  /* 6. Counter/stats — decrease padding and font size */
+  .stat-item {
+    padding: var(--sp-xs);
+  }
+
+  .stat-item__number {
+    font-size: 1.75rem;
+  }
+
+  .stat-item__suffix {
+    font-size: var(--fs-base);
+  }
+
+  .stat-item__label {
+    font-size: var(--fs-xs);
+  }
+
+  /* 7. "Your Smile, Our Priority" — center all content */
+  .smile-priority__text-wrap {
+    text-align: center;
+  }
+
+  .smile-priority__heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* 8. "Flexible Payment Plans" — center content */
+  .financing__text {
+    text-align: center;
+  }
+
+  .financing__options {
+    justify-content: center;
+  }
+
+  .financing__option {
+    justify-content: center;
+  }
+
+  .financing__logos {
+    justify-content: center;
+  }
+
+  .financing__text .btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 9. Footer — center all details and ::after of headings */
+  .footer__brand {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer__logo {
+    justify-content: center;
+  }
+
+  .footer__social {
+    justify-content: center;
+  }
+
+  .footer__column {
+    text-align: center;
+  }
+
+  .footer__column h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer__links {
+    align-items: center;
+  }
+
+  .footer__contact-item {
+    justify-content: center;
+  }
+
+  .footer__hours-row {
+    justify-content: center;
+    gap: 1rem;
+  }
 }
 
 /* Hero: show poster image instead of video on mobile */
