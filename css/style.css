@@ -72,7 +72,7 @@
   --sp-xl: 3rem;
   --sp-2xl: 4rem;
   --sp-3xl: 6rem;
-  --section-padding: 5rem 0;
+  --section-padding: 3.5rem 0;
 
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -445,10 +445,11 @@ p {
   width: 100%;
   z-index: 1000;
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-base);
+  transition: box-shadow var(--transition-base), background-color var(--transition-base);
 }
 
 .header--scrolled {
+  background-color: #000;
   box-shadow: var(--shadow-md);
 }
 
@@ -2587,7 +2588,7 @@ p {
    ========================================================== */
 @media (min-width: 768px) {
   :root {
-    --section-padding: 5.5rem 0;
+    --section-padding: 4rem 0;
   }
 
   h1 { font-size: var(--fs-4xl); }
@@ -2664,7 +2665,7 @@ p {
    ========================================================== */
 @media (min-width: 992px) {
   :root {
-    --section-padding: 6rem 0;
+    --section-padding: 4.5rem 0;
     --header-height: 90px;
   }
 
@@ -2708,7 +2709,7 @@ p {
    ========================================================== */
 @media (min-width: 1200px) {
   :root {
-    --section-padding: 7rem 0;
+    --section-padding: 5rem 0;
   }
 
   .container {

@@ -447,7 +447,8 @@ document.addEventListener('DOMContentLoaded', function () {
           nav: false,
           dots: true,
           autoplay: true,
-          autoplayTimeout: 3000,
+          autoplayTimeout: 5000,
+          smartSpeed: 1500,
           autoplayHoverPause: true,
           responsive: {
             0: { items: 1 },
