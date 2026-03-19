@@ -372,7 +372,7 @@ p {
    4. Top Info Bar
    ========================================================== */
 .info-bar {
-  background-color: var(--clr-navy-dark);
+  background-color: #011f26;
   color: var(--clr-text-muted);
   font-size: var(--fs-xs);
   padding: 0.5rem 0;
@@ -1513,11 +1513,146 @@ p {
 }
 
 /* ==========================================================
+   Orthodontic Treatment CTA Section
+   ========================================================== */
+.ortho-cta {
+  padding: var(--section-padding);
+  background-color: #a1dfed;
+}
+
+.ortho-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-lg);
+}
+
+.ortho-cta__title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-3xl);
+  font-weight: 900;
+  color: var(--clr-navy-dark);
+  line-height: 1.2;
+  max-width: 700px;
+}
+
+.ortho-cta__text {
+  font-size: var(--fs-md);
+  color: #444;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ortho-cta__content {
+  order: -1;
+}
+
+.ortho-cta__image img {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ortho-cta__image--left,
+.ortho-cta__image--right {
+  display: none;
+}
+
+/* ==========================================================
+   Meet Dr. Pramod Thomas Section
+   ========================================================== */
+.meet-dr {
+  padding: var(--section-padding);
+  background-color: #eef7f9;
+}
+
+.meet-dr__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-xl);
+  align-items: center;
+}
+
+.meet-dr__photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-sm);
+}
+
+.meet-dr__photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.meet-dr__photo:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-md);
+}
+
+.meet-dr__label {
+  display: block;
+  font-family: var(--ff-body);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--clr-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--sp-xs);
+}
+
+.meet-dr__name {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  color: var(--clr-navy-dark);
+  margin-bottom: var(--sp-md);
+  line-height: 1.2;
+}
+
+.meet-dr__bio {
+  font-size: var(--fs-base);
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: var(--sp-md);
+}
+
+/* ==========================================================
    15. Financing Section
    ========================================================== */
 .financing {
   padding: var(--section-padding);
-  background-color: var(--clr-off-white);
+  background: linear-gradient(135deg, #e8f4f8 0%, #d1ecf1 25%, #e0f0f5 50%, #c9e8ef 75%, #dff2f7 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.financing::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: rgba(201, 169, 97, 0.08);
+  border-radius: var(--radius-full);
+}
+
+.financing::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 160px;
+  height: 160px;
+  background: rgba(201, 169, 97, 0.06);
+  border-radius: var(--radius-full);
 }
 
 .financing__content {
@@ -2644,6 +2779,37 @@ p {
     grid-template-columns: 1fr 1fr;
   }
 
+  .ortho-cta__inner {
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .ortho-cta__content {
+    order: 0;
+    flex: 0 1 auto;
+    max-width: 500px;
+  }
+
+  .ortho-cta__image--left,
+  .ortho-cta__image--right {
+    display: block;
+    flex: 0 0 auto;
+  }
+
+  .ortho-cta__image--left img,
+  .ortho-cta__image--right img {
+    max-width: 220px;
+  }
+
+  .meet-dr__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .meet-dr__photo {
+    height: 180px;
+  }
+
 
 
   .contact__grid {
@@ -2733,6 +2899,19 @@ p {
 
   .social-feed__grid {
     grid-template-columns: repeat(8, 1fr);
+  }
+
+  .ortho-cta__image--left img,
+  .ortho-cta__image--right img {
+    max-width: 300px;
+  }
+
+  .ortho-cta__title {
+    font-size: var(--fs-4xl);
+  }
+
+  .meet-dr__photo {
+    height: 220px;
   }
 }
 
