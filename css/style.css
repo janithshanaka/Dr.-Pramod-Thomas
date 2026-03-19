@@ -72,7 +72,7 @@
   --sp-xl: 3rem;
   --sp-2xl: 4rem;
   --sp-3xl: 6rem;
-  --section-padding: 3.5rem 0;
+  --section-padding: 3.125rem 0;
 
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -2906,6 +2906,7 @@ p {
 
   .hero__description {
     margin-bottom: var(--sp-sm);
+    line-height: 1.4;
   }
 
   .hero__actions {
@@ -3032,8 +3033,24 @@ p {
   }
 
   .footer__hours-row {
-    justify-content: center;
+    justify-content: space-between;
     gap: 1rem;
+  }
+
+  /* About Doctor heading — center ::after on mobile */
+  .about-doctor__text h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Contact form — decrease padding on mobile */
+  .contact-form-section__form-wrap {
+    padding: var(--sp-md);
+  }
+
+  /* Footer bottom — increase padding-bottom on mobile */
+  .footer__bottom {
+    padding-bottom: var(--sp-xl);
   }
 }
 
@@ -3041,7 +3058,7 @@ p {
 @media (max-width: 766px) {
   .hero {
     min-height: auto;
-    background-image: url('https://github.com/user-attachments/assets/a0a8ecaf-17d4-4825-86e7-84d5363132da');
+    background-image: url('https://github.com/user-attachments/assets/8db8a80e-5362-41dd-b3a9-ae3e666fca0f');
     background-size: cover;
     background-position: center;
   }
