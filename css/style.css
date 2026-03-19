@@ -2822,7 +2822,7 @@ p {
 
   .footer__bottom-inner {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
   }
 }
 
