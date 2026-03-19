@@ -828,6 +828,19 @@ p {
   position: relative;
 }
 
+/* Shared animated accent circle styles */
+.doctor-profile__image::before,
+.about-doctor__image::before,
+.ortho-cta__image::before,
+.meet-dr__photo-grid::before,
+.financing__image::before,
+.contact-form-section__image::before {
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  opacity: 0.3;
+  animation: smilePulse 2.5s ease-in-out infinite;
+}
+
 .doctor-profile__image::before {
   content: '';
   position: absolute;
@@ -835,11 +848,6 @@ p {
   right: 10px;
   width: 100px;
   height: 100px;
-  background: var(--gradient-gold);
-  border-radius: var(--radius-full);
-  z-index: 1;
-  opacity: 0.3;
-  animation: smilePulse 2.5s ease-in-out infinite;
 }
 
 .doctor-profile__image::after {
@@ -1275,11 +1283,6 @@ p {
   right: 10px;
   width: 100px;
   height: 100px;
-  background: var(--gradient-gold);
-  border-radius: var(--radius-full);
-  z-index: 1;
-  opacity: 0.3;
-  animation: smilePulse 2.5s ease-in-out infinite;
 }
 
 .about-doctor__image img {
@@ -1590,15 +1593,10 @@ p {
 .ortho-cta__image::before {
   content: '';
   position: absolute;
-  bottom: -10px;
-  right: -10px;
+  bottom: 10px;
+  right: 10px;
   width: 80px;
   height: 80px;
-  background: var(--gradient-gold);
-  border-radius: var(--radius-full);
-  z-index: 0;
-  opacity: 0.3;
-  animation: smilePulse 2.5s ease-in-out infinite;
 }
 
 .ortho-cta__image--left,
@@ -1631,15 +1629,10 @@ p {
 .meet-dr__photo-grid::before {
   content: '';
   position: absolute;
-  bottom: -15px;
-  right: -15px;
+  bottom: -5px;
+  right: -5px;
   width: 100px;
   height: 100px;
-  background: var(--gradient-gold);
-  border-radius: var(--radius-full);
-  z-index: 0;
-  opacity: 0.3;
-  animation: smilePulse 2.5s ease-in-out infinite;
 }
 
 .meet-dr__photo {
@@ -1737,11 +1730,6 @@ p {
   left: 10px;
   width: 100px;
   height: 100px;
-  background: var(--gradient-gold);
-  border-radius: var(--radius-full);
-  z-index: 1;
-  opacity: 0.3;
-  animation: smilePulse 2.5s ease-in-out infinite;
 }
 
 .financing__image img {
@@ -2335,15 +2323,10 @@ p {
 .contact-form-section__image::before {
   content: '';
   position: absolute;
-  bottom: -10px;
-  left: -10px;
+  bottom: 10px;
+  left: 10px;
   width: 100px;
   height: 100px;
-  background: var(--gradient-gold);
-  border-radius: var(--radius-full);
-  z-index: 0;
-  opacity: 0.3;
-  animation: smilePulse 2.5s ease-in-out infinite;
 }
 
 .contact-form-section__image img {
