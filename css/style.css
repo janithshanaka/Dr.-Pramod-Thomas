@@ -2994,8 +2994,7 @@ p {
   }
 
   .financing__text .btn {
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline: auto;
   }
 
   /* 9. Footer — center all details and ::after of headings */
