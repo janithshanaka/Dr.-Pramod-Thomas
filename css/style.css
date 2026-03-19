@@ -50,8 +50,8 @@
   --gradient-gold-hover: linear-gradient(135deg, #b8953e 0%, #d4b96e 50%, #b8953e 100%);
 
   /* Typography */
-  --ff-heading: 'Playfair Display', Georgia, serif;
-  --ff-body: 'Open Sans', Arial, sans-serif;
+  --ff-heading: 'Roboto', Arial, sans-serif;
+  --ff-body: 'Nunito', Arial, sans-serif;
 
   --fs-xs: 0.75rem;   /* 12px */
   --fs-sm: 0.875rem;  /* 14px */
@@ -2864,6 +2864,59 @@ p {
 
   .header {
     top: 0;
+  }
+
+  /* Mobile fonts: Helvetica for all elements */
+  :root {
+    --ff-heading: 'Helvetica', Arial, sans-serif;
+    --ff-body: 'Helvetica', Arial, sans-serif;
+  }
+
+  /* Decrease heading font-sizes and line-height on mobile */
+  h1 { font-size: 1.75rem; line-height: 1.2; }
+  h2 { font-size: 1.5rem; line-height: 1.2; }
+  h3 { font-size: 1.25rem; line-height: 1.2; }
+  h4 { font-size: 1.125rem; line-height: 1.2; }
+  h5 { font-size: 1rem; line-height: 1.2; }
+  h6 { font-size: 0.875rem; line-height: 1.2; }
+
+  .section-title {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .hero__title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  /* Center all text on mobile */
+  body {
+    text-align: center;
+  }
+}
+
+/* Hero: show poster image instead of video on mobile */
+@media (max-width: 766px) {
+  .hero {
+    min-height: auto;
+    background-image: url('https://github.com/user-attachments/assets/a0a8ecaf-17d4-4825-86e7-84d5363132da');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero__video {
+    display: none;
+  }
+}
+
+/* Services: center content on mobile */
+@media (max-width: 761px) {
+  .service-card__body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
