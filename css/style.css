@@ -2897,7 +2897,7 @@ p {
 
   /* 1. Header poster (hero) — decrease spacing, button height & padding */
   .hero__content {
-    padding: var(--sp-md) var(--sp-sm);
+    padding: 200px 16px 35px 15px;
   }
 
   .hero__badge {
