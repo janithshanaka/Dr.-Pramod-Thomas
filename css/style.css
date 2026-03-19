@@ -93,7 +93,7 @@
   --transition-slow: 0.5s ease;
 
   /* Layout */
-  --max-width: 1200px;
+  --max-width: 1350px;
   --header-height: 80px;
   --info-bar-height: 40px;
 }
@@ -1251,7 +1251,6 @@ p {
 .about-doctor__image {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
   position: relative;
 }
 
@@ -1666,7 +1665,6 @@ p {
 .financing__image {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
 }
 
 .financing__image img {
@@ -2017,16 +2015,92 @@ p {
 /* Your Smile, Our Priority */
 .smile-priority {
   padding: var(--section-padding);
-  background-color: var(--clr-white);
+  background: linear-gradient(135deg, var(--clr-off-white) 0%, var(--clr-white) 100%);
+  overflow: hidden;
+}
+
+.smile-priority__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-xl);
+  align-items: center;
+}
+
+.smile-priority__image-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.smile-priority__image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius-lg);
+  display: block;
+  position: relative;
+  z-index: 2;
+  animation: smileFloat 3s ease-in-out infinite;
+}
+
+@keyframes smileFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.smile-priority__image-accent {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 120px;
+  height: 120px;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  z-index: 1;
+  opacity: 0.3;
+  animation: smilePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes smilePulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.15); opacity: 0.5; }
+}
+
+.smile-priority__text-wrap {
+  text-align: left;
+}
+
+.smile-priority__heading {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-2xl);
+  color: var(--clr-navy-dark);
+  margin-bottom: var(--sp-sm);
+  position: relative;
+  padding-bottom: var(--sp-sm);
+}
+
+.smile-priority__heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-gold);
+  border-radius: 2px;
+}
+
+.smile-priority__subtitle {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--clr-gold);
+  margin-bottom: var(--sp-md);
 }
 
 .smile-priority__text {
   font-size: var(--fs-base);
   color: var(--clr-text-dark);
   line-height: 1.8;
-  max-width: 900px;
-  margin: var(--sp-lg) auto 0;
-  text-align: center;
+  margin-bottom: var(--sp-lg);
 }
 
 /* Photo Gallery */
@@ -2184,7 +2258,6 @@ p {
   width: 100%;
   max-width: 450px;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
   object-fit: cover;
 }
 
@@ -2750,6 +2823,10 @@ p {
   }
 
   .about-doctor__content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .smile-priority__content {
     grid-template-columns: 1fr 1fr;
   }
 
