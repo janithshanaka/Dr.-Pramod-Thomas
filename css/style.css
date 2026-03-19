@@ -2918,6 +2918,14 @@ p {
     font-size: var(--fs-xs);
   }
 
+  .hero__scroll {
+    display: none;
+  }
+
+  .hero__actions .btn--schedule {
+    display: none;
+  }
+
   /* 2. Ortho CTA — decrease title font size, add margin-top to button */
   .ortho-cta__title {
     font-size: 1.25rem;
