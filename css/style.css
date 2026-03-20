@@ -1083,6 +1083,10 @@ p {
   background-clip: text;
 }
 
+.social-feed__header--tiktok {
+  padding: 0 var(--sp-lg);
+}
+
 /* TikTok widget full-width */
 .social-feed__widget--tiktok {
   min-height: 400px;
