@@ -1053,8 +1053,8 @@ p {
 
 .social-feed__accent-circle--top-right {
   top: -30px;
-  left: 50%;
-  margin-left: -60px;
+  right: -30px;
+  left: auto;
 }
 
 .social-feed__accent-circle--top-left {
@@ -1062,37 +1062,21 @@ p {
   left: -30px;
 }
 
-/* Instagram static image grid */
-.instagram-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 4px;
+/* Instagram auto-sliding carousel */
+.instagram-carousel {
   padding: 0 var(--sp-md);
   width: 100%;
 }
 
-.instagram-grid__item {
+.instagram-carousel__item {
   position: relative;
   overflow: hidden;
   display: block;
   aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
 }
 
-/* Fallback for browsers that don't support aspect-ratio */
-@supports not (aspect-ratio: 1 / 1) {
-  .instagram-grid__item::before {
-    content: "";
-    display: block;
-    padding-top: 100%;
-  }
-  .instagram-grid__item img {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-}
-
-.instagram-grid__item img {
+.instagram-carousel__item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1100,11 +1084,11 @@ p {
   transition: transform 0.3s ease;
 }
 
-.instagram-grid__item:hover img {
+.instagram-carousel__item:hover img {
   transform: scale(1.05);
 }
 
-.instagram-grid__overlay {
+.instagram-carousel__overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
@@ -1117,57 +1101,88 @@ p {
   transition: opacity 0.3s ease;
 }
 
-.instagram-grid__item:hover .instagram-grid__overlay {
+.instagram-carousel__item:hover .instagram-carousel__overlay {
   opacity: 1;
 }
 
-/* TikTok widget full-width */
-.social-feed__widget--tiktok {
-  min-height: 400px;
+/* Owl nav/dots styling for Instagram carousel */
+.instagram-carousel .owl-nav button.owl-prev,
+.instagram-carousel .owl-nav button.owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-radius: var(--radius-full) !important;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.3s ease;
+}
+
+.instagram-carousel .owl-nav button.owl-prev { left: 10px; }
+.instagram-carousel .owl-nav button.owl-next { right: 10px; }
+
+.instagram-carousel .owl-nav button:hover {
+  background: rgba(255, 255, 255, 1) !important;
+}
+
+.instagram-carousel .owl-dots {
+  text-align: center;
+  margin-top: var(--sp-sm);
+}
+
+/* TikTok auto-sliding carousel */
+.tiktok-carousel {
   width: 100%;
+  padding: 0 var(--sp-md);
 }
 
-/* TikTok embed container – full width */
-.tiktok-embed-container {
-  width: 100%;
-  padding: 0;
+.tiktok-carousel__item {
+  display: flex;
+  justify-content: center;
 }
 
-.tiktok-embed-container .tiktok-embed {
+.tiktok-carousel__item .tiktok-embed {
   max-width: 100% !important;
-  width: 100% !important;
-  margin: 0 !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
 }
 
-.tiktok-embed-container iframe {
+.tiktok-carousel__item iframe {
   max-width: 100% !important;
-  width: 100% !important;
+  border-radius: var(--radius-md);
 }
 
-/* Override 780px max-width that TikTok embed.js injects as inline style */
-.tiktok-embed-container > * {
-  max-width: 100% !important;
-  width: 100% !important;
+/* Owl nav/dots styling for TikTok carousel */
+.tiktok-carousel .owl-nav button.owl-prev,
+.tiktok-carousel .owl-nav button.owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-radius: var(--radius-full) !important;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.3s ease;
 }
 
-/* TikTok embed generated container – full width.
-   Note: .css-ekq38o is a class injected by TikTok's embed.js at runtime.
-   If TikTok changes their embed markup, this selector may need updating. */
-.tiktok-embed-container .css-ekq38o {
-  max-width: 100% !important;
-  width: 100% !important;
+.tiktok-carousel .owl-nav button.owl-prev { left: 10px; }
+.tiktok-carousel .owl-nav button.owl-next { right: 10px; }
+
+.tiktok-carousel .owl-nav button:hover {
+  background: rgba(255, 255, 255, 1) !important;
 }
 
-/* TikTok embed #main container – full width */
-.tiktok-embed-container #main {
-  max-width: 100% !important;
-  width: 100% !important;
-}
-
-/* TikTok playlist card container – full width */
-.tiktok-embed-container [data-e2e="playlist-playlistCard-Container"] {
-  max-width: 100% !important;
-  width: 100% !important;
+.tiktok-carousel .owl-dots {
+  text-align: center;
+  margin-top: var(--sp-sm);
 }
 
 /* TikTok video grid */
@@ -1211,14 +1226,14 @@ p {
     margin-top: var(--sp-md);
   }
 
-  .instagram-grid,
-  .tiktok-embed-container {
+  .instagram-carousel,
+  .tiktok-carousel {
     grid-row: 2;
     grid-column: 1 / -1;
   }
 
-  /* Instagram grid: full width on desktop */
-  .instagram-grid {
+  /* Instagram carousel: full width on desktop */
+  .instagram-carousel {
     max-width: 100%;
     margin: 0 auto;
   }
@@ -1232,10 +1247,6 @@ p {
   .social-feed__cta {
     text-align: center;
     margin-top: var(--sp-md);
-  }
-
-  .instagram-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 

@@ -458,6 +458,47 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
 
+      // Instagram Feed Carousel (auto-slide)
+      if ($('.instagram-carousel').length) {
+        $('.instagram-carousel').owlCarousel({
+          loop: true,
+          margin: 10,
+          nav: true,
+          dots: true,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          autoplayHoverPause: true,
+          smartSpeed: 800,
+          navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+          responsive: {
+            0: { items: 1 },
+            576: { items: 2 },
+            768: { items: 3 },
+            992: { items: 4 }
+          }
+        });
+      }
+
+      // TikTok Feed Carousel (auto-slide)
+      if ($('.tiktok-carousel').length) {
+        $('.tiktok-carousel').owlCarousel({
+          loop: true,
+          margin: 15,
+          nav: true,
+          dots: true,
+          autoplay: true,
+          autoplayTimeout: 4000,
+          autoplayHoverPause: true,
+          smartSpeed: 800,
+          navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+          responsive: {
+            0: { items: 1 },
+            768: { items: 2 },
+            992: { items: 3 }
+          }
+        });
+      }
+
 
     });
   }
