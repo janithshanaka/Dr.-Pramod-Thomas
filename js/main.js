@@ -458,26 +458,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
 
-      // Instagram Feed Carousel (5 cols × 2 rows, auto-slide)
-      if ($('.instagram-carousel').length) {
-        $('.instagram-carousel').owlCarousel({
-          loop: true,
-          margin: 4,
-          nav: false,
-          dots: true,
-          autoplay: true,
-          autoplayTimeout: 3000,
-          autoplayHoverPause: true,
-          smartSpeed: 800,
-          responsive: {
-            0: { items: 2 },
-            576: { items: 3 },
-            768: { items: 4 },
-            992: { items: 5 }
-          }
-        });
-      }
-
       // TikTok Video Carousel
       if ($('.tiktok-carousel').length) {
         $('.tiktok-carousel').owlCarousel({
