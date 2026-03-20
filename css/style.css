@@ -1068,10 +1068,12 @@ p {
   justify-content: center;
   padding: var(--sp-md) 0;
   width: 100%;
+  min-height: 400px;
 }
 
 .instagram-embed-container > div {
   width: 100%;
+  min-height: 400px;
 }
 
 /* TikTok widget full-width */
@@ -1185,6 +1187,11 @@ p {
   .social-feed__cta {
     text-align: center;
     margin-top: var(--sp-md);
+  }
+
+  .instagram-embed-container,
+  .instagram-embed-container > div {
+    min-height: 300px;
   }
 }
 
