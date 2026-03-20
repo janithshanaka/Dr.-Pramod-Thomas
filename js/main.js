@@ -714,11 +714,14 @@ document.addEventListener('DOMContentLoaded', function () {
      -------------------------------------------------------- */
   var baSliderSources = [];
   var currentBALightboxIndex = 0;
+  var baSourcesCached = false;
 
   function getBASliderSources() {
+    if (baSourcesCached && baSliderSources.length) return baSliderSources;
     var els = document.querySelectorAll('.before-after-carousel .owl-item:not(.cloned) [data-lightbox-ba]');
     if (els.length) {
       baSliderSources = Array.from(els).map(function (el) { return el.getAttribute('href'); });
+      baSourcesCached = true;
     }
     return baSliderSources;
   }
