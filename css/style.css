@@ -1182,6 +1182,10 @@ p {
 }
 
 @media (max-width: 767px) {
+  .social-feed__header {
+    justify-content: center;
+  }
+
   .social-feed__header-text {
     text-align: center;
   }
@@ -1189,6 +1193,10 @@ p {
   .social-feed__cta {
     text-align: center;
     margin-top: var(--sp-md);
+  }
+
+  .tiktok-carousel {
+    padding: 0;
   }
 }
 
