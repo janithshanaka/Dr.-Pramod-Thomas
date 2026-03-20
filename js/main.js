@@ -420,7 +420,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
 
-      // Testimonials Carousel — replaced by Elfsight Google Reviews widget (no Owl init needed)
+      // Testimonials Carousel
+      if ($('.testimonials-carousel').length) {
+        $('.testimonials-carousel').owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: true,
+          dots: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          autoplayHoverPause: true,
+          navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+          responsive: {
+            0: { items: 1 },
+            768: { items: 2 },
+            992: { items: 3 }
+          }
+        });
+      }
 
       // Footer Team Carousel
       if ($('.footer-team-carousel').length) {
@@ -441,7 +458,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
 
-      // Instagram Feed Carousel — replaced by Elfsight widget (no Owl init needed)
+      // Instagram Feed Carousel (5 cols × 2 rows, auto-slide)
+      if ($('.instagram-carousel').length) {
+        $('.instagram-carousel').owlCarousel({
+          loop: true,
+          margin: 4,
+          nav: false,
+          dots: true,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          autoplayHoverPause: true,
+          smartSpeed: 800,
+          responsive: {
+            0: { items: 2 },
+            576: { items: 3 },
+            768: { items: 4 },
+            992: { items: 5 }
+          }
+        });
+      }
 
       // TikTok Video Carousel
       if ($('.tiktok-carousel').length) {
