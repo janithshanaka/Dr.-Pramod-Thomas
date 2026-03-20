@@ -953,6 +953,8 @@ p {
 .social-feed--tiktok {
   border-top: 3px solid;
   border-image: linear-gradient(45deg, #00f2ea, #ff0050) 1;
+  background-color: #a1dfed;
+  padding: var(--sp-xl) 0;
 }
 
 .social-feed__header {
@@ -962,6 +964,10 @@ p {
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: var(--sp-lg);
+}
+
+.social-feed--instagram .social-feed__header {
+  padding: var(--sp-lg) var(--sp-md);
 }
 
 .social-feed__header-text {
@@ -1020,7 +1026,8 @@ p {
 
 .social-feed__accent-circle--top-right {
   top: -30px;
-  right: -30px;
+  left: 50%;
+  margin-left: -60px;
 }
 
 .social-feed__accent-circle--top-left {
@@ -1076,9 +1083,73 @@ p {
   background-clip: text;
 }
 
+.social-feed__header--tiktok {
+  padding: 0 var(--sp-lg);
+}
+
 /* TikTok widget full-width */
 .social-feed__widget--tiktok {
   min-height: 400px;
+  width: 100%;
+}
+
+/* TikTok video grid */
+.tiktok-video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  padding: 0 var(--sp-lg);
+  justify-items: center;
+}
+
+.tiktok-video-card {
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 9 / 16;
+  max-width: 350px;
+  width: 100%;
+}
+
+.tiktok-video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tiktok-video-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+}
+
+.tiktok-video-card:hover .tiktok-video-card__overlay {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.tiktok-video-card__play {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xl);
+  color: var(--clr-navy-dark);
+  transition: transform 0.3s ease;
+}
+
+.tiktok-video-card:hover .tiktok-video-card__play {
+  transform: scale(1.1);
 }
 
 /* ==========================================================
@@ -2397,6 +2468,26 @@ p {
 
 .lightbox__next {
   right: 1.5rem;
+}
+
+.lightbox__video {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: var(--radius-md);
+  display: none;
+}
+
+.lightbox--video .lightbox__img {
+  display: none;
+}
+
+.lightbox--video .lightbox__video {
+  display: block;
+}
+
+.lightbox--video .lightbox__prev,
+.lightbox--video .lightbox__next {
+  display: none;
 }
 
 /* Contact Form Section */
