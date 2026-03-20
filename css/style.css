@@ -505,12 +505,14 @@ p {
 /* Desktop Nav */
 .nav {
   display: none;
+  overflow: visible;
 }
 
 .nav__list {
   display: flex;
   align-items: center;
   gap: 0;
+  flex-wrap: nowrap;
 }
 
 .nav__item {
@@ -593,6 +595,7 @@ p {
   display: flex;
   gap: 0;
   min-width: 680px;
+  max-width: 90vw;
   background-color: var(--clr-white);
   border-radius: 0 0 var(--radius-md) var(--radius-md);
   box-shadow: var(--shadow-lg);
@@ -2643,6 +2646,23 @@ p {
 .photo-gallery {
   padding: var(--section-padding);
   background-color: var(--clr-off-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-gallery__accent-circle {
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 120px;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  opacity: 0.3;
+  z-index: 0;
+  animation: smilePulse 2.5s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .photo-gallery__carousel {
@@ -2880,6 +2900,7 @@ p {
   color: var(--clr-navy-dark);
   margin-bottom: var(--sp-lg);
   font-size: var(--fs-xl);
+  text-align: center;
 }
 
 /* Footer Team Carousel */
@@ -3529,6 +3550,14 @@ p {
   .hero__video {
     display: none;
   }
+
+  /* Hide all animated accent circles on small viewports */
+  .services__accent-circle,
+  .social-feed__accent-circle,
+  .testimonials__accent-circle,
+  .photo-gallery__accent-circle {
+    display: none;
+  }
 }
 
 /* Services: center content on mobile */
@@ -3539,6 +3568,55 @@ p {
     flex-direction: column;
     align-items: center;
   }
+}
+
+/* ==========================================================
+   Page Hero — used on subpages
+   ========================================================== */
+.page-hero {
+  background-color: var(--clr-navy-dark);
+  padding: 120px 0 60px;
+  text-align: center;
+}
+
+.page-hero__title {
+  color: var(--clr-white);
+  font-family: var(--ff-heading);
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--sp-sm);
+}
+
+.page-hero__breadcrumb {
+  color: var(--clr-text-muted);
+  font-size: var(--fs-sm);
+}
+
+.page-hero__breadcrumb a {
+  color: var(--clr-gold);
+  transition: color var(--transition-fast);
+}
+
+.page-hero__breadcrumb a:hover {
+  color: var(--clr-gold-hover);
+}
+
+.page-hero__breadcrumb span {
+  margin: 0 0.5rem;
+}
+
+/* ==========================================================
+   Page Content — used on subpages
+   ========================================================== */
+.page-content {
+  padding: var(--section-padding);
+  background-color: var(--clr-white);
+}
+
+.page-content .container {
+  max-width: 900px;
+  font-size: var(--fs-md);
+  line-height: 1.8;
+  color: var(--clr-text-dark);
 }
 
 /* ==========================================================
@@ -3708,8 +3786,8 @@ p {
   }
 
   .nav__link {
-    padding: 0.5rem 0.6rem;
-    font-size: var(--fs-xs);
+    padding: 0.5rem 0.4rem;
+    font-size: 0.7rem;
   }
 
 
