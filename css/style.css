@@ -1062,18 +1062,63 @@ p {
   left: -30px;
 }
 
-/* Instagram Elfsight widget container */
-.instagram-embed-container {
-  display: flex;
-  justify-content: center;
-  padding: var(--sp-md) 0;
+/* Instagram static image grid */
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  padding: 0 var(--sp-md);
   width: 100%;
-  min-height: 400px;
 }
 
-.instagram-embed-container > div {
+.instagram-grid__item {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+/* Fallback for browsers that don't support aspect-ratio */
+@supports not (aspect-ratio: 1 / 1) {
+  .instagram-grid__item::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+  .instagram-grid__item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.instagram-grid__item img {
   width: 100%;
-  min-height: 400px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.instagram-grid__item:hover img {
+  transform: scale(1.05);
+}
+
+.instagram-grid__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: var(--fs-2xl);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.instagram-grid__item:hover .instagram-grid__overlay {
+  opacity: 1;
 }
 
 /* TikTok widget full-width */
@@ -1166,14 +1211,14 @@ p {
     margin-top: var(--sp-md);
   }
 
-  .instagram-embed-container,
+  .instagram-grid,
   .tiktok-embed-container {
     grid-row: 2;
     grid-column: 1 / -1;
   }
 
-  /* Instagram Elfsight widget: full width on desktop */
-  .instagram-embed-container {
+  /* Instagram grid: full width on desktop */
+  .instagram-grid {
     max-width: 100%;
     margin: 0 auto;
   }
@@ -1189,9 +1234,8 @@ p {
     margin-top: var(--sp-md);
   }
 
-  .instagram-embed-container,
-  .instagram-embed-container > div {
-    min-height: 300px;
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
