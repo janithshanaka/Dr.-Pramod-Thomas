@@ -493,7 +493,7 @@ document.addEventListener('DOMContentLoaded', function () {
           responsive: {
             0: { items: 1 },
             576: { items: 2 },
-            992: { items: 3 }
+            992: { items: 5 }
           }
         });
       }
