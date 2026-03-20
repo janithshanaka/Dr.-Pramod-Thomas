@@ -1078,13 +1078,13 @@ p {
   margin: 0 !important;
 }
 
-/* Negative margin hides the ~80px Instagram profile header (username / followers / posts bar)
+/* Negative margin hides the Instagram profile header (avatar / username / followers / posts bar)
    that appears at the top of the embed iframe; the container's overflow:hidden clips it. */
 .instagram-embed-container iframe {
   max-width: 100% !important;
   width: 100% !important;
   min-width: 0 !important;
-  margin-top: -80px !important;
+  margin-top: -120px !important;
 }
 
 /* TikTok widget full-width */
@@ -1106,6 +1106,12 @@ p {
 }
 
 .tiktok-embed-container iframe {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Override 780px max-width that TikTok embed.js injects as inline style */
+.tiktok-embed-container > * {
   max-width: 100% !important;
   width: 100% !important;
 }
