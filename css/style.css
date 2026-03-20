@@ -1169,6 +1169,7 @@ p {
     align-self: center;
   }
 
+  /* TikTok section has no horizontal padding, so CTA needs its own to match header */
   .social-feed__cta--tiktok {
     padding-right: var(--sp-lg);
   }
