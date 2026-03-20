@@ -1019,6 +1019,97 @@ p {
   font-weight: 600;
 }
 
+/* Instagram Feed Section */
+.instagram-section {
+  width: 100%;
+  padding: var(--sp-3xl) 0;
+  background: linear-gradient(135deg, #1a2744 0%, #243656 50%, #1a2744 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.instagram-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.instagram-section__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.instagram-section__header {
+  text-align: center;
+  margin-bottom: var(--sp-xl);
+}
+
+.instagram-section__icon {
+  font-size: 3rem;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--sp-sm);
+  display: inline-block;
+}
+
+.instagram-section .section-title {
+  color: var(--clr-white);
+}
+
+.instagram-section .section-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.instagram-section__widget {
+  max-width: 540px;
+  margin: 0 auto var(--sp-xl);
+}
+
+.instagram-section__widget .instagram-media {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.instagram-section__cta {
+  text-align: center;
+}
+
+.btn--instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 2.5rem;
+  font-family: var(--ff-body);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--clr-white);
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4);
+}
+
+.btn--instagram:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(225, 48, 108, 0.5);
+}
+
+.btn--instagram i {
+  font-size: 1.2rem;
+}
+
 /* ==========================================================
    9. Our Services Section
    ========================================================== */
