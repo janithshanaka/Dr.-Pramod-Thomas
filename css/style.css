@@ -2131,7 +2131,6 @@ p {
 .google-reviews-header__logo {
   height: 24px;
   width: auto;
-  filter: brightness(0) invert(1);
 }
 
 .google-reviews-header__rating {
