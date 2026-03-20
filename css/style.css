@@ -3684,6 +3684,11 @@ p {
   .photo-gallery__btn-wrap {
     margin-top: 15px;
   }
+
+  /* Before/After button — margin-top 10px on mobile */
+  .before-after-section__btn-wrap {
+    margin-top: 10px;
+  }
 }
 
 /* Hero: show poster image instead of video on mobile */
