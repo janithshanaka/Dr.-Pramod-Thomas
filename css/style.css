@@ -1103,6 +1103,54 @@ p {
   justify-items: center;
 }
 
+/* TikTok Owl Carousel slider */
+.tiktok-carousel {
+  padding: 0 var(--sp-lg);
+}
+
+.tiktok-carousel__item {
+  aspect-ratio: 9 / 16;
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tiktok-carousel__item iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--radius-md);
+}
+
+.tiktok-carousel .owl-nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-sm);
+  margin-top: var(--sp-md);
+}
+
+.tiktok-carousel .owl-nav button.owl-prev,
+.tiktok-carousel .owl-nav button.owl-next {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--clr-navy-dark) !important;
+  color: var(--clr-white) !important;
+  font-size: var(--fs-lg) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  border: 2px solid transparent;
+}
+
+.tiktok-carousel .owl-nav button.owl-prev:hover,
+.tiktok-carousel .owl-nav button.owl-next:hover {
+  background: var(--gradient-gold) !important;
+  color: var(--clr-navy-dark) !important;
+  transform: translateY(-2px);
+}
+
 .tiktok-video-card {
   position: relative;
   cursor: pointer;
