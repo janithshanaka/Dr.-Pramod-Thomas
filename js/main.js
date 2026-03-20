@@ -420,24 +420,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
 
-      // Testimonials Carousel
-      if ($('.testimonials-carousel').length) {
-        $('.testimonials-carousel').owlCarousel({
-          loop: true,
-          margin: 20,
-          nav: true,
-          dots: true,
-          autoplay: true,
-          autoplayTimeout: 5000,
-          autoplayHoverPause: true,
-          navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
-          responsive: {
-            0: { items: 1 },
-            768: { items: 2 },
-            992: { items: 3 }
-          }
-        });
-      }
+      // Testimonials Carousel — replaced by Elfsight Google Reviews widget (no Owl init needed)
 
       // Footer Team Carousel
       if ($('.footer-team-carousel').length) {
@@ -458,22 +441,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
 
-      // Instagram Feed Carousel (5 cols × 2 rows, auto-slide)
-      if ($('.instagram-carousel').length) {
-        $('.instagram-carousel').owlCarousel({
+      // Instagram Feed Carousel — replaced by Elfsight widget (no Owl init needed)
+
+      // TikTok Video Carousel
+      if ($('.tiktok-carousel').length) {
+        $('.tiktok-carousel').owlCarousel({
           loop: true,
-          margin: 4,
-          nav: false,
+          margin: 20,
+          nav: true,
           dots: true,
           autoplay: true,
-          autoplayTimeout: 3000,
+          autoplayTimeout: 6000,
           autoplayHoverPause: true,
           smartSpeed: 800,
+          navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
           responsive: {
-            0: { items: 2 },
-            576: { items: 3 },
-            768: { items: 4 },
-            992: { items: 5 }
+            0: { items: 1 },
+            576: { items: 2 },
+            992: { items: 3 }
           }
         });
       }
