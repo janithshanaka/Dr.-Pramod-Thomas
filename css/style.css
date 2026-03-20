@@ -999,9 +999,50 @@ p {
   color: var(--clr-navy-dark);
 }
 
-.social-feed__widget {
+.social-feed__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
   width: 100%;
-  min-height: 300px;
+}
+
+.social-feed__item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: #eee;
+}
+
+.social-feed__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.social-feed__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-feed__overlay i {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.social-feed__item:hover img {
+  transform: scale(1.05);
+}
+
+.social-feed__item:hover .social-feed__overlay {
+  opacity: 1;
 }
 
 /* ==========================================================
@@ -3044,6 +3085,20 @@ p {
   /* Footer bottom — increase padding-bottom on mobile */
   .footer__bottom {
     padding-bottom: var(--sp-xl);
+  }
+
+  /* Instagram grid — 2 columns on mobile */
+  .social-feed__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .social-feed__header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .social-feed__header-text {
+    text-align: center;
   }
 }
 
