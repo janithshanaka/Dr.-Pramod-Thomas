@@ -2858,8 +2858,7 @@ p {
 
 .before-after-section__item img {
   width: 100%;
-  height: 280px;
-  object-fit: cover;
+  height: auto;
   display: block;
   transition: transform 0.4s ease;
 }
@@ -2895,19 +2894,19 @@ p {
 
 .before-after-section .owl-nav button.owl-prev,
 .before-after-section .owl-nav button.owl-next {
-  color: var(--clr-white);
+  color: #c9a961;
   background: rgba(201, 169, 97, 0.2);
   border-radius: var(--radius-full);
   width: 44px;
   height: 44px;
   font-size: var(--fs-lg);
-  transition: background var(--transition-fast);
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .before-after-section .owl-nav button.owl-prev:hover,
 .before-after-section .owl-nav button.owl-next:hover {
   background: var(--clr-gold);
-  color: var(--clr-navy-dark);
+  color: #011f26;
 }
 
 .before-after-section .owl-dots .owl-dot span {
@@ -2916,6 +2915,21 @@ p {
 
 .before-after-section .owl-dots .owl-dot.active span {
   background: var(--clr-gold);
+}
+
+.before-after-section__accent-circle {
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 120px;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  opacity: 0.3;
+  z-index: 0;
+  animation: smilePulse 2.5s ease-in-out infinite;
+  pointer-events: none;
 }
 
 /* Contact Form Section */
@@ -3689,7 +3703,8 @@ p {
   .services__accent-circle,
   .social-feed__accent-circle,
   .testimonials__accent-circle,
-  .photo-gallery__accent-circle {
+  .photo-gallery__accent-circle,
+  .before-after-section__accent-circle {
     display: none;
   }
 }
