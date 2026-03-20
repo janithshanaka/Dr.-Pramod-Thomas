@@ -503,12 +503,13 @@ document.addEventListener('DOMContentLoaded', function () {
      -------------------------------------------------------- */
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxVideo = document.getElementById('lightbox-video');
   const lightboxClose = document.querySelector('.lightbox__close');
   const lightboxPrev = document.querySelector('.lightbox__prev');
   const lightboxNext = document.querySelector('.lightbox__next');
   const galleryItems = document.querySelectorAll('[data-lightbox]');
   let currentLightboxIndex = 0;
-  let lightboxMode = 'gallery'; // 'gallery' or 'footer'
+  let lightboxMode = 'gallery'; // 'gallery', 'footer', or 'video'
 
   function openLightbox(index) {
     if (!lightbox || !lightboxImg || !galleryItems.length) return;
@@ -521,8 +522,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function closeLightbox() {
     if (!lightbox) return;
-    lightbox.classList.remove('lightbox--open');
+    lightbox.classList.remove('lightbox--open', 'lightbox--video');
     document.body.style.overflow = '';
+    if (lightboxVideo) {
+      lightboxVideo.pause();
+      lightboxVideo.removeAttribute('src');
+    }
   }
 
   function showPrevImage() {
@@ -601,6 +606,22 @@ document.addEventListener('DOMContentLoaded', function () {
     if (link) {
       e.preventDefault();
       openFooterLightbox(link.getAttribute('href'));
+    }
+  });
+
+  /* --------------------------------------------------------
+     17. TikTok Video Lightbox
+     -------------------------------------------------------- */
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest('[data-lightbox-video]');
+    if (card && lightbox && lightboxVideo) {
+      e.preventDefault();
+      var videoSrc = card.getAttribute('data-lightbox-video');
+      lightboxMode = 'video';
+      lightboxVideo.src = videoSrc;
+      lightbox.classList.add('lightbox--open', 'lightbox--video');
+      lightboxVideo.play();
+      document.body.style.overflow = 'hidden';
     }
   });
 

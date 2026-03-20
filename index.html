@@ -717,7 +717,7 @@
        ============================================================ -->
   <section class="social-feed social-feed--tiktok" id="tiktok">
     <div class="social-feed__accent-circle social-feed__accent-circle--top-left"></div>
-    <div class="social-feed__header">
+    <div class="social-feed__header" style="padding: 0 var(--sp-lg);">
       <div class="social-feed__header-text social-feed__header-text--tiktok">
         <i class="fab fa-tiktok"></i>
         <h3>Follow Us</h3>
@@ -727,11 +727,15 @@
         <i class="fab fa-tiktok"></i> @emmanueldentaltx
       </a>
     </div>
-    <div class="social-feed__widget social-feed__widget--tiktok">
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@emmanueldental" data-unique-id="emmanueldental" data-embed-from="embed_page" data-embed-type="creator" style="max-width:100%;min-width:100%;">
-        <section><a target="_blank" href="https://www.tiktok.com/@emmanueldental?refer=creator_embed">@emmanueldental</a></section>
-      </blockquote>
-      <script async src="https://www.tiktok.com/embed.js"></script>
+    <div class="tiktok-video-grid">
+      <div class="tiktok-video-card" data-lightbox-video="asset/Emmanuel Dental _ Short Promo.mp4">
+        <video src="asset/Emmanuel Dental _ Short Promo.mp4" muted preload="metadata"></video>
+        <div class="tiktok-video-card__overlay">
+          <div class="tiktok-video-card__play">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -831,6 +835,7 @@
     <button class="lightbox__next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
     <div class="lightbox__content">
       <img src="" alt="Gallery preview" class="lightbox__img" id="lightbox-img">
+      <video class="lightbox__video" id="lightbox-video" controls></video>
     </div>
   </div>
 
