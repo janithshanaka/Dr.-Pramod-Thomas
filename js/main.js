@@ -458,25 +458,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
 
-      // TikTok Video Carousel
-      if ($('.tiktok-carousel').length) {
-        $('.tiktok-carousel').owlCarousel({
-          loop: true,
-          margin: 20,
-          nav: true,
-          dots: true,
-          autoplay: true,
-          autoplayTimeout: 6000,
-          autoplayHoverPause: true,
-          smartSpeed: 800,
-          navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
-          responsive: {
-            0: { items: 1 },
-            576: { items: 2 },
-            992: { items: 5 }
-          }
-        });
-      }
 
     });
   }
