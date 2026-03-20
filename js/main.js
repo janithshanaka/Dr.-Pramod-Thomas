@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const hamburger = document.querySelector('.hamburger');
   const mobileNav = document.querySelector('.mobile-nav');
   const mobileNavOverlay = document.querySelector('.mobile-nav__overlay');
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav__link, .mobile-nav__sub-link, .mobile-nav__cta .btn');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav__link, .mobile-nav__sub-link, .mobile-nav__sub-sub-link, .mobile-nav__cta .btn');
 
   function openMobileNav() {
     if (!hamburger || !mobileNav) return;
@@ -65,6 +65,20 @@ document.addEventListener('DOMContentLoaded', function () {
         // Rotate chevron icon if present
         const icon = this.querySelector('i');
         if (icon) icon.classList.toggle('rotate-180');
+      }
+    });
+  });
+
+  /* Sub-sub-dropdown toggles (nested Services menus) */
+  const mobileSubDropdownToggles = document.querySelectorAll('.mobile-nav__sub-link[data-sub-dropdown]');
+
+  mobileSubDropdownToggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      const submenu = this.nextElementSibling;
+      if (submenu && submenu.classList.contains('mobile-nav__sub-sub')) {
+        submenu.classList.toggle('mobile-nav__sub-sub--open');
+        this.classList.toggle('mobile-nav__sub-link--open');
       }
     });
   });
@@ -494,6 +508,26 @@ document.addEventListener('DOMContentLoaded', function () {
           responsive: {
             0: { items: 1 },
             768: { items: 2 },
+            992: { items: 3 }
+          }
+        });
+      }
+
+      // Photo Gallery Carousel (auto-slide)
+      if ($('.photo-gallery__carousel').length) {
+        $('.photo-gallery__carousel').owlCarousel({
+          loop: true,
+          margin: 15,
+          nav: true,
+          dots: true,
+          autoplay: true,
+          autoplayTimeout: 3000,
+          autoplayHoverPause: true,
+          smartSpeed: 800,
+          navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+          responsive: {
+            0: { items: 1 },
+            576: { items: 2 },
             992: { items: 3 }
           }
         });
