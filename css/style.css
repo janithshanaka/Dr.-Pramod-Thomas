@@ -1114,6 +1114,11 @@ p {
   width: 100% !important;
 }
 
+/* TikTok embed #main container – full width */
+.tiktok-embed-container #main {
+  max-width: 100% !important;
+}
+
 /* TikTok video grid */
 .tiktok-video-grid {
   display: grid;
@@ -1161,9 +1166,9 @@ p {
     grid-column: 1 / -1;
   }
 
-  /* Instagram embed: 5-post width on desktop */
+  /* Instagram embed: 6-post width on desktop */
   .instagram-embed-container {
-    max-width: 1350px;
+    max-width: 100%;
     margin: 0 auto;
   }
 }
