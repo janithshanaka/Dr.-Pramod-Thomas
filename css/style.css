@@ -1069,17 +1069,11 @@ p {
 .instagram-section__widget {
   max-width: 540px;
   margin: 0 auto var(--sp-xl);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  background: var(--clr-white);
 }
 
-.instagram-section__embed {
-  display: block;
-  width: 100%;
-  min-height: 600px;
-  border: none;
+.instagram-section__widget .instagram-media {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
 }
 
 .instagram-section__cta {
