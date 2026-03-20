@@ -533,6 +533,26 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
 
+      // Before & After Carousel
+      if ($('.before-after-carousel').length) {
+        $('.before-after-carousel').owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: true,
+          dots: true,
+          autoplay: true,
+          autoplayTimeout: 4000,
+          autoplayHoverPause: true,
+          smartSpeed: 800,
+          navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+          responsive: {
+            0: { items: 1 },
+            576: { items: 2 },
+            992: { items: 3 }
+          }
+        });
+      }
+
 
     });
   }
@@ -565,7 +585,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const lightboxNext = document.querySelector('.lightbox__next');
   const galleryItems = document.querySelectorAll('[data-lightbox]');
   let currentLightboxIndex = 0;
-  let lightboxMode = 'gallery'; // 'gallery', 'footer', or 'video'
+  let lightboxMode = 'gallery'; // 'gallery', 'footer', 'ba', or 'video'
 
   function openLightbox(index) {
     if (!lightbox || !lightboxImg || !galleryItems.length) return;
@@ -591,6 +611,10 @@ document.addEventListener('DOMContentLoaded', function () {
       var sources = getFooterSliderSources();
       currentFooterLightboxIndex = (currentFooterLightboxIndex - 1 + sources.length) % sources.length;
       lightboxImg.src = sources[currentFooterLightboxIndex];
+    } else if (lightboxMode === 'ba') {
+      var sources = getBASliderSources();
+      currentBALightboxIndex = (currentBALightboxIndex - 1 + sources.length) % sources.length;
+      lightboxImg.src = sources[currentBALightboxIndex];
     } else {
       currentLightboxIndex = (currentLightboxIndex - 1 + galleryItems.length) % galleryItems.length;
       lightboxImg.src = galleryItems[currentLightboxIndex].href;
@@ -602,6 +626,10 @@ document.addEventListener('DOMContentLoaded', function () {
       var sources = getFooterSliderSources();
       currentFooterLightboxIndex = (currentFooterLightboxIndex + 1) % sources.length;
       lightboxImg.src = sources[currentFooterLightboxIndex];
+    } else if (lightboxMode === 'ba') {
+      var sources = getBASliderSources();
+      currentBALightboxIndex = (currentBALightboxIndex + 1) % sources.length;
+      lightboxImg.src = sources[currentBALightboxIndex];
     } else {
       currentLightboxIndex = (currentLightboxIndex + 1) % galleryItems.length;
       lightboxImg.src = galleryItems[currentLightboxIndex].href;
@@ -678,6 +706,39 @@ document.addEventListener('DOMContentLoaded', function () {
       lightbox.classList.add('lightbox--open', 'lightbox--video');
       lightboxVideo.play();
       document.body.style.overflow = 'hidden';
+    }
+  });
+
+  /* --------------------------------------------------------
+     18. Before & After Lightbox (event delegation for Owl clones)
+     -------------------------------------------------------- */
+  var baSliderSources = [];
+  var currentBALightboxIndex = 0;
+
+  function getBASliderSources() {
+    var els = document.querySelectorAll('.before-after-carousel .owl-item:not(.cloned) [data-lightbox-ba]');
+    if (els.length) {
+      baSliderSources = Array.from(els).map(function (el) { return el.getAttribute('href'); });
+    }
+    return baSliderSources;
+  }
+
+  function openBALightbox(src) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxMode = 'ba';
+    var sources = getBASliderSources();
+    currentBALightboxIndex = sources.indexOf(src);
+    if (currentBALightboxIndex === -1) currentBALightboxIndex = 0;
+    lightboxImg.src = src;
+    lightbox.classList.add('lightbox--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('[data-lightbox-ba]');
+    if (link) {
+      e.preventDefault();
+      openBALightbox(link.getAttribute('href'));
     }
   });
 
