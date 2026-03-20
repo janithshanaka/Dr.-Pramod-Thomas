@@ -942,6 +942,7 @@ p {
   background-color: var(--clr-off-white);
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
 
 .social-feed--instagram {
@@ -1002,6 +1003,82 @@ p {
 .social-feed__widget {
   width: 100%;
   min-height: 300px;
+}
+
+/* Accent circles for social feed sections */
+.social-feed__accent-circle {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  opacity: 0.3;
+  z-index: 0;
+  animation: smilePulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.social-feed__accent-circle--top-right {
+  top: -30px;
+  right: -30px;
+}
+
+.social-feed__accent-circle--top-left {
+  top: -30px;
+  left: -30px;
+}
+
+/* Instagram Carousel (5 cols × 2 rows) */
+.instagram-carousel .owl-stage {
+  display: flex;
+}
+
+.instagram-carousel__col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.instagram-carousel__link {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.instagram-carousel__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.instagram-carousel__link:hover .instagram-carousel__img {
+  transform: scale(1.08);
+  filter: brightness(0.85);
+}
+
+.instagram-carousel .owl-nav {
+  display: none;
+}
+
+.instagram-carousel .owl-dots {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* TikTok header icon gradient */
+.social-feed__header-text--tiktok i {
+  background: linear-gradient(45deg, #00f2ea, #ff0050);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* TikTok widget full-width */
+.social-feed__widget--tiktok {
+  min-height: 400px;
 }
 
 /* ==========================================================
