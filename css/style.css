@@ -1062,29 +1062,16 @@ p {
   left: -30px;
 }
 
-/* Instagram embed container – full width for 5-post desktop layout */
+/* Instagram Elfsight widget container */
 .instagram-embed-container {
   display: flex;
   justify-content: center;
   padding: var(--sp-md) 0;
   width: 100%;
-  overflow: hidden;
 }
 
-.instagram-embed-container .instagram-media {
-  max-width: 100% !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  margin: 0 !important;
-}
-
-/* Negative margin hides the Instagram profile header (avatar / username / followers / posts bar)
-   that appears at the top of the embed iframe; the container's overflow:hidden clips it. */
-.instagram-embed-container iframe {
-  max-width: 100% !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  margin-top: -120px !important;
+.instagram-embed-container > div {
+  width: 100%;
 }
 
 /* TikTok widget full-width */
@@ -1127,10 +1114,12 @@ p {
 /* TikTok embed #main container – full width */
 .tiktok-embed-container #main {
   max-width: 100% !important;
+  width: 100% !important;
 }
 
 /* TikTok playlist card container – full width */
-.tiktok-embed-container .playlist-playlistCard-Container {
+.tiktok-embed-container [data-e2e="playlist-playlistCard-Container"] {
+  max-width: 100% !important;
   width: 100% !important;
 }
 
@@ -1181,7 +1170,7 @@ p {
     grid-column: 1 / -1;
   }
 
-  /* Instagram embed: 6-post width on desktop */
+  /* Instagram Elfsight widget: full width on desktop */
   .instagram-embed-container {
     max-width: 100%;
     margin: 0 auto;
