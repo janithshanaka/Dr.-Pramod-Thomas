@@ -292,6 +292,17 @@ p {
   box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
 }
 
+.btn--spaced {
+  margin-top: 50px;
+}
+
+.btn--centered {
+  display: block;
+  margin-inline: auto;
+  width: fit-content;
+  text-align: center;
+}
+
 .btn--navy {
   background-color: var(--clr-navy-dark);
   color: var(--clr-white);
