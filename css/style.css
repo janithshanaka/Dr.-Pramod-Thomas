@@ -867,6 +867,7 @@ p {
   color: var(--clr-white);
   margin-bottom: var(--sp-sm);
   line-height: 1.2;
+   text-shadow: 2px 2px 2px #000;
 }
 
 .hero__title span {
@@ -875,11 +876,12 @@ p {
 
 .hero__description {
   font-size: var(--fs-md);
-  color: var(--clr-text-muted);
+  color: #fff;
   margin-bottom: var(--sp-lg);
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+   text-shadow: 2px 2px 2px #000;
 }
 
 .hero__actions {
