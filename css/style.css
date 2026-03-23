@@ -630,7 +630,7 @@ p {
 }
 .nav__mega-col-1:before{
    position: absolute;
-   content: url(asset/restorative-img.png);
+   content: url(../asset/restorative-img.png);
   margin: auto;
   text-align: center;
   top: -115px;
@@ -639,7 +639,7 @@ p {
 }
 .nav__mega-col-2:before{
    position: absolute;
-   content: url(asset/cosmetic-img.png);
+   content: url(../asset/cosmetic-img.png);
   margin: auto;
   text-align: center;
   top: -115px;
@@ -648,7 +648,7 @@ p {
 }
 .nav__mega-col-3:before{
    position: absolute;
-   content: url(asset/orthodontic-img.png.png);
+   content: url(../asset/orthodontic-img.png);
   margin: auto;
   text-align: center;
   top: -115px;
