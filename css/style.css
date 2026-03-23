@@ -1850,7 +1850,7 @@ p {
   background: var(--gradient-gold);
   border-radius: var(--radius-full);
   opacity: 0.3;
-  z-index: 0;
+  z-index: 2;
   animation: smilePulse 2.5s ease-in-out infinite;
   pointer-events: none;
 }
@@ -3832,6 +3832,14 @@ p {
   .before-after-section__accent-circle,
   .featured-services__accent-circle {
     display: none;
+  }
+
+  .featured-services {
+    padding-top: 2.5rem;
+  }
+
+  .featured-services__heading {
+    font-size: var(--fs-2xl);
   }
 }
 
