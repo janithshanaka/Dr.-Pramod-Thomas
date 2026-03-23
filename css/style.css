@@ -317,9 +317,10 @@ p {
 }
 
 .btn--outline {
-  background: transparent;
+  background: var(--clr-navy-dark);
   color: var(--clr-white);
-  border-color: var(--clr-gold);
+  border-color: var(--clr-navy-dark);
+  color: var(--clr-navy-dark);
 }
 
 .btn--outline:hover {
@@ -844,8 +845,8 @@ p {
   max-width: 800px;
    margin-right: auto;
   margin-top: auto;
-  margin-bottom: 100px;
-   margin-left: 20%;
+  margin-bottom: 60px;
+   margin-left: 8%;
 }
 
 .hero__badge {
@@ -859,6 +860,8 @@ p {
   letter-spacing: 2px;
   border-radius: var(--radius-xl);
   margin-bottom: var(--sp-md);
+   background: var(--clr-navy-dark);
+
 }
 
 .hero__title {
@@ -3512,6 +3515,7 @@ p {
   /* 1. Header poster (hero) — decrease spacing, button height & padding */
   .hero__content {
     padding: 200px 16px 35px 15px;
+     margin-left: auto;
   }
 
   .hero__badge {
