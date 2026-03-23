@@ -1937,11 +1937,7 @@ p {
 .stats__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(26, 39, 68, 0.92) 0%,
-    rgba(36, 54, 86, 0.88) 100%
-  );
+  background: linear-gradient( 135deg, rgba(26, 39, 68, 0.8) 0%, rgba(36, 54, 86, 0.83) 100% );
   z-index: 1;
 }
 
@@ -1963,9 +1959,9 @@ p {
 
 .stat-item__number {
   font-family: var(--ff-heading);
-  font-size: var(--fs-4xl);
+  color: #fff;
   font-weight: 700;
-  color: var(--clr-gold);
+  color: #fff;
   line-height: 1;
   margin-bottom: 0.25rem;
 }
@@ -1976,13 +1972,13 @@ p {
 
 .stat-item__label {
   font-size: var(--fs-sm);
-  color: var(--clr-white);
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .stat-item__icon {
-  font-size: var(--fs-2xl);
+  font-size: 70px;
   color: var(--clr-white);
   margin-bottom: 0.5rem;
 }
