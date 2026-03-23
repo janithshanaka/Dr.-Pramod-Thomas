@@ -2128,6 +2128,21 @@ p {
   overflow: hidden;
 }
 
+/* Animated accent circle – top-right */
+.meet-dr__accent-circle {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  opacity: 0.3;
+  z-index: 0;
+  animation: smilePulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
 /* Decorative wave SVG */
 .meet-dr__wave {
   position: absolute;
@@ -3979,7 +3994,8 @@ p {
   .testimonials__accent-circle,
   .photo-gallery__accent-circle,
   .before-after-section__accent-circle,
-  .featured-services__accent-circle {
+  .featured-services__accent-circle,
+  .meet-dr__accent-circle {
     display: none;
   }
 
