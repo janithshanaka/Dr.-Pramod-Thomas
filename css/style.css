@@ -977,7 +977,6 @@ p {
 .doctor-profile__image::before,
 .about-doctor__image::before,
 .ortho-cta__image::before,
-.meet-dr__photo-grid::before,
 .financing__image::before,
 .contact-form-section__image::before {
   background: var(--gradient-gold);
@@ -2120,76 +2119,195 @@ p {
 }
 
 /* ==========================================================
-   Meet Dr. Pramod Thomas Section
+   Meet Dr. Pramod Thomas Section (Redesigned)
    ========================================================== */
 .meet-dr {
-  padding: var(--section-padding);
-  background-color: #eef7f9;
+  padding: 4rem 0;
+  background: linear-gradient(160deg, #e8eef5 0%, #dce5ef 40%, #e5ebf2 70%, #edf1f6 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative wave SVG */
+.meet-dr__wave {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .meet-dr__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--sp-xl);
+  gap: 2.5rem;
   align-items: center;
-}
-
-.meet-dr__photo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--sp-sm);
   position: relative;
+  z-index: 1;
 }
 
-.meet-dr__photo-grid::before {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  right: -5px;
-  width: 100px;
-  height: 100px;
+/* --- Photo collage --- */
+.meet-dr__photos {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+  min-height: 320px;
 }
 
-.meet-dr__photo {
+.meet-dr__main-photo {
+  width: 280px;
+  height: 340px;
+  border-radius: 50% 50% 50% 50% / 45% 45% 55% 55%;
+  overflow: hidden;
+  border: 5px solid var(--clr-white);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: 2;
+}
+
+.meet-dr__main-photo img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: top center;
+}
+
+.meet-dr__small-photo {
+  position: absolute;
+  width: 130px;
+  height: 105px;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  border: 4px solid var(--clr-white);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 3;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.meet-dr__photo:hover {
-  transform: scale(1.03);
-  box-shadow: var(--shadow-md);
+.meet-dr__small-photo:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
+.meet-dr__small-photo--left {
+  bottom: 30px;
+  left: 5%;
+  transform: rotate(-5deg);
+}
+
+.meet-dr__small-photo--left:hover {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.meet-dr__small-photo--right {
+  bottom: 0;
+  left: 45%;
+  transform: rotate(3deg);
+}
+
+.meet-dr__small-photo--right:hover {
+  transform: rotate(3deg) scale(1.05);
+}
+
+.meet-dr__small-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Content side --- */
 .meet-dr__label {
   display: block;
-  font-family: var(--ff-body);
-  font-size: var(--fs-md);
-  font-weight: 600;
-  color: var(--clr-gold);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: var(--sp-xs);
+  font-family: var(--ff-heading);
+  font-size: var(--fs-lg);
+  font-weight: 400;
+  color: var(--clr-navy-dark);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.5px;
 }
 
 .meet-dr__name {
   font-family: var(--ff-heading);
-  font-size: var(--fs-3xl);
-  font-weight: 700;
+  font-size: 2.2rem;
+  font-weight: 900;
   color: var(--clr-navy-dark);
-  margin-bottom: var(--sp-md);
-  line-height: 1.2;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.meet-dr__accent {
+  color: var(--clr-gold);
+  font-size: 0.35em;
+  vertical-align: middle;
+  margin: 0 0.15em;
+  display: inline-block;
+  transform: translateY(-2px);
+}
+
+/* Quote block */
+.meet-dr__quote {
+  background: rgba(195, 215, 232, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem 1.5rem;
+  margin: 0 0 1.5rem;
+  position: relative;
+}
+
+.meet-dr__quote-mark {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--clr-gold);
+  line-height: 0.8;
+  font-family: Georgia, 'Times New Roman', serif;
+  margin-bottom: 0.25rem;
+}
+
+.meet-dr__quote p {
+  font-style: italic;
+  font-size: var(--fs-base);
+  color: #3a4a5c;
+  line-height: 1.7;
+  margin: 0;
 }
 
 .meet-dr__bio {
   font-size: var(--fs-base);
   color: #555;
   line-height: 1.8;
-  margin-bottom: var(--sp-md);
+  margin-bottom: 1.5rem;
+}
+
+/* Learn More button */
+.meet-dr__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  background: var(--gradient-gold);
+  color: var(--clr-navy-dark);
+  font-family: var(--ff-body);
+  font-weight: 700;
+  font-size: var(--fs-base);
+  letter-spacing: 0.5px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  border: 2px solid var(--clr-gold);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.meet-dr__btn:hover {
+  background: var(--gradient-gold-hover);
+  border-color: var(--clr-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
+}
+
+.meet-dr__btn-arrow {
+  font-size: 1.3em;
+  line-height: 1;
 }
 
 /* ==========================================================
@@ -3796,8 +3914,39 @@ p {
 
   /* Meet Dr heading — decrease font-size and line-height on mobile */
   .meet-dr__name {
-    font-size: 1.25rem;
-    line-height: 1.1;
+    font-size: 1.6rem;
+    line-height: 1.15;
+  }
+
+  .meet-dr__photos {
+    min-height: 280px;
+    padding-bottom: 40px;
+  }
+
+  .meet-dr__main-photo {
+    width: 220px;
+    height: 270px;
+  }
+
+  .meet-dr__small-photo {
+    width: 110px;
+    height: 90px;
+  }
+
+  .meet-dr__small-photo--left {
+    left: 2%;
+  }
+
+  .meet-dr__small-photo--right {
+    left: 50%;
+  }
+
+  .meet-dr__quote {
+    padding: 1.25rem 1.25rem 1rem;
+  }
+
+  .meet-dr__quote-mark {
+    font-size: 2rem;
   }
 
   /* Photo Gallery button — margin-top 15px on mobile */
@@ -4033,11 +4182,31 @@ p {
   }
 
   .meet-dr__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 45% 1fr;
   }
 
-  .meet-dr__photo {
-    height: 180px;
+  .meet-dr__main-photo {
+    width: 300px;
+    height: 360px;
+  }
+
+  .meet-dr__small-photo {
+    width: 140px;
+    height: 110px;
+  }
+
+  .meet-dr__small-photo--left {
+    left: 0;
+    bottom: 20px;
+  }
+
+  .meet-dr__small-photo--right {
+    left: 40%;
+    bottom: -10px;
+  }
+
+  .meet-dr__name {
+    font-size: 2.2rem;
   }
 
 
@@ -4143,8 +4312,22 @@ p {
     margin-bottom: 25px;
   }
 
-  .meet-dr__photo {
-    height: 220px;
+  .meet-dr__main-photo {
+    width: 370px;
+    height: 440px;
+  }
+
+  .meet-dr__small-photo {
+    width: 170px;
+    height: 130px;
+  }
+
+  .meet-dr__name {
+    font-size: 2.8rem;
+  }
+
+  .meet-dr__quote p {
+    font-size: var(--fs-md);
   }
 }
 
