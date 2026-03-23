@@ -1976,9 +1976,15 @@ p {
 
 .stat-item__label {
   font-size: var(--fs-sm);
-  color: var(--clr-text-muted);
+  color: var(--clr-white);
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.stat-item__icon {
+  font-size: var(--fs-2xl);
+  color: var(--clr-white);
+  margin-bottom: 0.5rem;
 }
 
 .stat-item__divider {
