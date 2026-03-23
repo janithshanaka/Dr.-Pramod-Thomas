@@ -582,7 +582,7 @@ p {
 
 .nav__dropdown-link {
   display: block;
-  padding: 0.65rem 1.5rem;
+  padding: 0.50rem 1.5rem;
   font-size: var(--fs-sm);
   color: var(--clr-text-dark);
   transition: all var(--transition-fast);
@@ -602,7 +602,7 @@ p {
   transform: translateX(-50%) translateY(10px);
   display: flex;
   gap: 0;
-  min-width: 680px;
+  min-width: 1023px;
   max-width: 90vw;
   background-color: var(--clr-white);
   border-radius: 0 0 var(--radius-md) var(--radius-md);
