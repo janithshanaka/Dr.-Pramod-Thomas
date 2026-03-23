@@ -3923,6 +3923,7 @@ p {
   }
 
   .stat-item__number {
+    font-family: 'Great Vibes', cursive;
     font-size: var(--fs-5xl);
   }
 
