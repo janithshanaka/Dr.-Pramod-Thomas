@@ -613,6 +613,7 @@ p {
   padding: 1rem 0;
   z-index: 100;
   border-top: 3px solid var(--clr-gold);
+   padding-top: 125px;
 }
 
 .nav__item--mega:hover > .nav__mega-menu {
@@ -625,8 +626,20 @@ p {
   flex: 1;
   padding: 0 1rem;
   border-right: 1px solid var(--clr-off-white);
+   position: relative;
 }
-
+.nav__mega-col:before{
+   position: absolute;
+  content: url(https://www.ekwa-testbench.info/website-launchpad/thefacialhouse.ca/wp-content/themes/ekwa/images/3.png);
+  margin: auto;
+  text-align: center;
+  top: 55px;
+  left: 0;
+  right: 0;
+}
+.nav__mega-col .nav__mega-col-1:before{
+   content: url(asset/restorative-img.png);
+}
 .nav__mega-col:last-child {
   border-right: none;
 }
