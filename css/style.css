@@ -628,22 +628,32 @@ p {
   border-right: 1px solid var(--clr-off-white);
    position: relative;
 }
-.nav__mega-col:before{
+.nav__mega-col-1:before{
    position: absolute;
+   content: url(asset/restorative-img.png);
   margin: auto;
   text-align: center;
   top: -115px;
   left: 0;
   right: 0;
 }
-.nav__mega-col.nav__mega-col-1:before{
-   content: url(asset/restorative-img.png);
-}
-.nav__mega-col.nav__mega-col-2:before{
+.nav__mega-col-2:before{
+   position: absolute;
    content: url(asset/cosmetic-img.png);
+  margin: auto;
+  text-align: center;
+  top: -115px;
+  left: 0;
+  right: 0;
 }
-.nav__mega-col.nav__mega-col-3:before{
+.nav__mega-col-3:before{
+   position: absolute;
    content: url(asset/orthodontic-img.png.png);
+  margin: auto;
+  text-align: center;
+  top: -115px;
+  left: 0;
+  right: 0;
 }
 .nav__mega-col:last-child {
   border-right: none;
