@@ -1965,7 +1965,7 @@ p {
   font-family: var(--ff-heading);
   font-size: var(--fs-4xl);
   font-weight: 700;
-  color: var(--clr-gold);
+  color: #fff;
   line-height: 1;
   margin-bottom: 0.25rem;
 }
@@ -1976,13 +1976,13 @@ p {
 
 .stat-item__label {
   font-size: var(--fs-sm);
-  color: var(--clr-white);
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .stat-item__icon {
-  font-size: var(--fs-2xl);
+  font-size: 60px;
   color: var(--clr-white);
   margin-bottom: 0.5rem;
 }
