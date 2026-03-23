@@ -1834,15 +1834,57 @@ p {
    13. Featured Services (Full-width Panel with BG swap)
    ========================================================== */
 .featured-services {
+  position: relative;
   text-align: center;
+  padding-top: 5rem;
+}
+
+/* Animated accent circle — left center */
+.featured-services__accent-circle {
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 120px;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  opacity: 0.3;
+  z-index: 0;
+  animation: smilePulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Small label above the heading */
+.featured-services__label {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--clr-gold);
+  margin: 0 0 0.5rem;
 }
 
 .featured-services__heading {
   font-family: var(--ff-heading);
-  font-size: 2rem;
+  font-size: var(--fs-3xl);
+  font-weight: 700;
   color: var(--clr-navy-dark);
-  padding: 2.5rem 1rem 1.5rem;
+  padding: 0 1rem 1.5rem;
   margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.featured-services__heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-gold);
+  margin: var(--sp-sm) auto 0;
+  border-radius: 2px;
 }
 
 /* --- Panel (the navy image area) --- */
@@ -3787,7 +3829,8 @@ p {
   .social-feed__accent-circle,
   .testimonials__accent-circle,
   .photo-gallery__accent-circle,
-  .before-after-section__accent-circle {
+  .before-after-section__accent-circle,
+  .featured-services__accent-circle {
     display: none;
   }
 }
