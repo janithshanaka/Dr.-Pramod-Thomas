@@ -2217,6 +2217,36 @@ p {
   object-fit: cover;
 }
 
+/* --- Photo grid (2×2 collage for second Meet Dr section) --- */
+.meet-dr__photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+.meet-dr__photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 4px solid var(--clr-white);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.meet-dr__photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset collage-specific padding when using the grid layout */
+.meet-dr__photos:has(.meet-dr__photo-grid) {
+  padding-bottom: 0;
+  min-height: auto;
+  display: block;
+}
+
 /* --- Content side --- */
 .meet-dr__label {
   display: block;
@@ -3941,6 +3971,10 @@ p {
     left: 50%;
   }
 
+  .meet-dr__photo {
+    height: 160px;
+  }
+
   .meet-dr__quote {
     padding: 1.25rem 1.25rem 1rem;
   }
@@ -4207,6 +4241,10 @@ p {
 
   .meet-dr__name {
     font-size: 2.2rem;
+  }
+
+  .meet-dr__photo {
+    height: 260px;
   }
 
 
