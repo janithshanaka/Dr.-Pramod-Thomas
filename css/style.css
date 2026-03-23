@@ -2241,7 +2241,7 @@ p {
 }
 
 /* Reset collage-specific padding when using the grid layout */
-.meet-dr__photos:has(.meet-dr__photo-grid) {
+.meet-dr__photos--grid {
   padding-bottom: 0;
   min-height: auto;
   display: block;
