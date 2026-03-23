@@ -745,4 +745,30 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  /* -------------------------------------------------------
+     Featured Services – swap background image on hover
+     ------------------------------------------------------- */
+  (function () {
+    var panel = document.querySelector('.featured-services__panel');
+    if (!panel) return;
+
+    var items = panel.querySelectorAll('.featured-services__item[data-service]');
+    var layers = panel.querySelectorAll('.featured-services__bg-layer[data-bg]');
+
+    function activateLayer(serviceKey) {
+      layers.forEach(function (layer) {
+        layer.classList.toggle(
+          'featured-services__bg-layer--active',
+          layer.getAttribute('data-bg') === serviceKey
+        );
+      });
+    }
+
+    items.forEach(function (item) {
+      item.addEventListener('mouseenter', function () {
+        activateLayer(item.getAttribute('data-service'));
+      });
+    });
+  })();
+
 }); // end DOMContentLoaded
