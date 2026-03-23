@@ -630,15 +630,20 @@ p {
 }
 .nav__mega-col:before{
    position: absolute;
-  content: url(https://www.ekwa-testbench.info/website-launchpad/thefacialhouse.ca/wp-content/themes/ekwa/images/3.png);
   margin: auto;
   text-align: center;
-  top: 55px;
+  top: -115px;
   left: 0;
   right: 0;
 }
 .nav__mega-col .nav__mega-col-1:before{
    content: url(asset/restorative-img.png);
+}
+.nav__mega-col .nav__mega-col-2:before{
+   content: url(asset/cosmetic-img.png);
+}
+.nav__mega-col .nav__mega-col-3:before{
+   content: url(asset/orthodontic-img.png.png);
 }
 .nav__mega-col:last-child {
   border-right: none;
