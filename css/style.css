@@ -1849,7 +1849,8 @@ p {
 .featured-services__panel {
   position: relative;
   overflow: hidden;
-  min-height: 420px;
+  --fs-panel-height: 420px;
+  min-height: var(--fs-panel-height);
 }
 
 /* Stacked background layers */
@@ -1882,7 +1883,7 @@ p {
   display: grid;
   grid-template-columns: 1fr;
   height: 100%;
-  min-height: 420px;
+  min-height: var(--fs-panel-height);
 }
 
 /* Each service column */
