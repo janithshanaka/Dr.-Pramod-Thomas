@@ -1490,6 +1490,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -3573,8 +3574,23 @@ p {
 }
 
 /* Services Carousel */
+.services-carousel .owl-stage {
+  display: flex;
+}
+
+.services-carousel .owl-item {
+  display: flex;
+}
+
 .services-carousel .service-card {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.services-carousel .service-card__body {
+  flex: 1;
 }
 
 .services-carousel .owl-stage-outer {
