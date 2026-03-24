@@ -582,15 +582,15 @@ p {
 
 .nav__dropdown-link {
   display: block;
-  padding: 0.50rem 1.5rem;
+  padding: 0.45rem 1.5rem;
   font-size: var(--fs-sm);
   color: var(--clr-text-dark);
   transition: all var(--transition-fast);
 }
 
 .nav__dropdown-link:hover {
-  background-color: var(--clr-off-white);
-  color: var(--clr-gold);
+  background-color: var(--clr-navy-dark);
+  color: #fff;
   padding-left: 2rem;
 }
 
